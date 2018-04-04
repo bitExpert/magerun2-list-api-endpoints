@@ -1,0 +1,6 @@
+autoloaders:
+  Bitexpert: %module%/src
+
+commands:
+  customCommands:
+    - Bitexpert\Magento\ListApiEndpoints\Command\ListApiEndpoints
