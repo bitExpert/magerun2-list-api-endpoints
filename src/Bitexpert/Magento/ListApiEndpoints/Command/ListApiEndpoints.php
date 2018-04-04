@@ -4,6 +4,7 @@ namespace Bitexpert\Magento\ListApiEndpoints\Command;
 
 use Magento\Framework\App\ObjectManager;
 use N98\Magento\Command\AbstractMagentoCommand;
+use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -31,17 +32,21 @@ class ListApiEndpoints extends AbstractMagentoCommand
             $serviceConfig = ObjectManager::getInstance()->get(\Magento\Webapi\Model\Config::class);
             $services = $serviceConfig->getServices();
 
+            //format the table
+            $table = new Table($output);
+            $table->setHeaders(array('Method', "Route", "Resources"));
+
             foreach ($services['routes'] as $route => $methods) {
                 foreach ($methods as $method => $config) {
-                    $entry = sprintf(
-                        "%s\t- %s",
-                        $method,
-                        $route
-                    );
-
-                    $output->writeln($entry);
+                    $table->addRow([
+                        sprintf('<fg=green>%s</>', $method),
+                        sprintf('<fg=white>%s</>', $route),
+                        sprintf('<fg=red>%s</>', json_encode($config['resources']))
+                    ]);
                 }
             }
+
+            $table->render();
         }
     }
 }
