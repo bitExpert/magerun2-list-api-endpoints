@@ -2,12 +2,14 @@
 
 namespace Bitexpert\Magento\ListApiEndpoints\Command;
 
+use Magento\Framework\App\ObjectManager;
 use N98\Magento\Command\AbstractMagentoCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class ListApiEndpoints extends AbstractMagentoCommand
 {
+
     protected function configure()
     {
         $this
@@ -25,7 +27,21 @@ class ListApiEndpoints extends AbstractMagentoCommand
     {
         $this->detectMagento($output);
         if ($this->initMagento()) {
-            // .. do something
+            /** @var \Magento\Webapi\Model\Config $serviceConfig */
+            $serviceConfig = ObjectManager::getInstance()->get(\Magento\Webapi\Model\Config::class);
+            $services = $serviceConfig->getServices();
+
+            foreach ($services['routes'] as $route => $methods) {
+                foreach ($methods as $method => $config) {
+                    $entry = sprintf(
+                        "%s\t- %s",
+                        $method,
+                        $route
+                    );
+
+                    $output->writeln($entry);
+                }
+            }
         }
     }
 }

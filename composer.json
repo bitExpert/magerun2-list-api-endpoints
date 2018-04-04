@@ -20,8 +20,16 @@
     "php": ">=5.6"
   },
   "require-dev": {
-    "n98/magerun": "dev-master"
+    "n98/magerun": "dev-master",
+    "magento/module-webapi": "100.2.1",
+    "magento/framework": "101.0.*"
   },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://repo.magento.com/"
+    }
+  ],
   "autoload": {
     "psr-0": {
       "Bitexpert": "src/",
