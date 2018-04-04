@@ -1,0 +1,36 @@
+{
+  "name": "bitexpert/magerun2-list-api-endpoints",
+  "description": "Plugin for netz98 Magerun2 to list all API endpoints",
+  "keywords": [
+    "magerun"
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "homepage": "https://github.com/philippsander/magerun2-list-api-endpoints",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Philipp Sander",
+      "email": "p.sander@bitexpert.de",
+      "homepage": "http://www.bitexpert.de",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.6"
+  },
+  "require-dev": {
+    "n98/magerun": "dev-master"
+  },
+  "autoload": {
+    "psr-0": {
+      "Bitexpert": "src/",
+      "N98": "vendor/n98/magerun/src"
+    }
+  },
+  "autoload-dev": {
+    "psr-0": {
+      "N98": "vendor/n98/magerun/tests"
+    }
+  }
+}
