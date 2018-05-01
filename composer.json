@@ -22,7 +22,9 @@
   "require-dev": {
     "n98/magerun": "dev-master",
     "magento/module-webapi": "100.2.1",
-    "magento/framework": "101.0.*"
+    "magento/framework": "101.0.*",
+    "phpunit/phpunit": "^6.5",
+    "squizlabs/php_codesniffer": "^3.2"
   },
   "repositories": [
     {
@@ -40,5 +42,14 @@
     "psr-0": {
       "N98": "vendor/n98/magerun/tests"
     }
+  },
+  "scripts": {
+    "check": [
+      "@cs-check",
+      "@test"
+    ],
+    "cs-check": "./vendor/bin/phpcs --standard=PSR2 ./src ./tests",
+    "cs-fix": "vendor/bin/phpcbf",
+    "test": "vendor/bin/phpunit"
   }
 }
