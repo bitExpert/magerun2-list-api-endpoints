@@ -47,10 +47,12 @@ class ListApiEndpoints extends AbstractMagentoCommand
     {
         $this->detectMagento($output);
         if ($this->initMagento()) {
-            $services = $this->getDefinedServices();
             $outputFormat = $input->getOption(self::OPTION_OUTPUT_FORMAT);
-            switch ($outputFormat)
-            {
+            /** @var \Magento\Webapi\Model\Config $serviceConfig */
+            $serviceConfig = ObjectManager::getInstance()->get(\Magento\Webapi\Model\Config::class);
+            $services = $serviceConfig->getServices();
+
+            switch ($outputFormat) {
                 case 'table':
                     $this->printAsTable($services, $output);
                     break;
@@ -81,15 +83,5 @@ class ListApiEndpoints extends AbstractMagentoCommand
         }
 
         $table->render();
-    }
-
-    /**
-     * @return array
-     */
-    protected function getDefinedServices()
-    {
-        /** @var \Magento\Webapi\Model\Config $serviceConfig */
-        $serviceConfig = ObjectManager::getInstance()->get(\Magento\Webapi\Model\Config::class);
-        return $serviceConfig->getServices();
     }
 }
