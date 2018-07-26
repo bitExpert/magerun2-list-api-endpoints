@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the magerun2-list-api-endpoints package.
+ *
+ * (c) bitExpert AG
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Bitexpert\Magento\ListApiEndpoints\Command;
 
 use Magento\Framework\App\ObjectManager;
@@ -43,8 +52,7 @@ class ListApiEndpoints extends AbstractMagentoCommand
             $serviceConfig = ObjectManager::getInstance()->get(\Magento\Webapi\Model\Config::class);
             $services = $serviceConfig->getServices();
 
-            switch ($outputFormat)
-            {
+            switch ($outputFormat) {
                 case 'table':
                     $this->printAsTable($services, $output);
                     break;
