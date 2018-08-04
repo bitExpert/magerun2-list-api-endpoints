@@ -6,7 +6,7 @@
   ],
   "minimum-stability": "dev",
   "prefer-stable": true,
-  "homepage": "https://github.com/philippsander/magerun2-list-api-endpoints",
+  "homepage": "https://github.com/bitExpert/magerun2-list-api-endpoints",
   "license": "MIT",
   "authors": [
     {
@@ -34,7 +34,7 @@
   ],
   "autoload": {
     "psr-0": {
-      "Bitexpert": "src/",
+      "BitExpert": "src/",
       "N98": "vendor/n98/magerun/src"
     }
   },
