@@ -1,21 +1,34 @@
-# magerun2-list-api-endpoints
+# magerun2 plugin: List all API endpoints
 
-Plugin for netz98 Magerun2 to list all API endpoints
+[![Build Status](https://travis-ci.org/bitExpert/magerun2-list-api-endpoints.svg?branch=master)](https://travis-ci.org/bitExpert/magerun2-list-api-endpoints)
 
-## Usage
-
-This module adds the `api:list:endpoints` command to magerun2.
+This is a plugin for [netz98 Magerun2](https://github.com/netz98/n98-magerun2) to list all API endpoints.
 
 ## Installation
 
-You obviously need https://github.com/netz98/n98-magerun2 to be installed already.
-Checkout the repository to one of the following path:
+The preferred way of installing `bitexpert/magerun2-list-api-endpoints` is through Composer.
+Simply add `bitexpert/magerun2-list-api-endpoints` as a dev dependency:
 
-* /usr/local/share/n98-magerun2/modules
-* ~/.n98-magerun2/modules
-* MAGENTO_ROOT/lib/n98-magerun2/modules
-* %windir%\n98-magerun2\modules (only Microsoft Windows)
-* %userprofile%\n98-magerun2\modules (only Microsoft Windows)
+```
+composer.phar require --dev bitexpert/magerun2-list-api-endpoints
+```
+
+## Usage
+
+This plugin adds the `api:list:endpoints` command to magerun2.
+
+You are able to filter routes by their respective HTTP methods. To only
+see GET routes, run magerun2 like this:
+
+```
+magerun2 api:list:endpoints --method=get
+```
+
+To list all GET and POST routes, pass a comma-separated list as method argument:
+
+```
+magerun2 api:list:endpoints --method=get,post
+```
 
 ## Contribute
 
