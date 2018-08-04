@@ -9,10 +9,13 @@ matrix:
   - php: 7.0
   - php: 7.1
 
+before_install:
+  - if [[ $encrypted_dcf04ab9e4c0_key != '' ]]; then openssl aes-256-cbc -K $encrypted_dcf04ab9e4c0_key -iv $encrypted_dcf04ab9e4c0_iv -in auth.json.enc -out auth.json -d ; fi
+
 before_script:
   - composer self-update
   - composer validate
 
 script:
-  - composer validate
-
+  - if [[ $encrypted_dcf04ab9e4c0_key != '' ]]; then composer install --prefer-source ; fi
+  - if [[ $encrypted_dcf04ab9e4c0_key != '' ]]; then composer test ; fi
