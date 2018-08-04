@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Bitexpert\Magento\ListApiEndpoints\Command;
+namespace BitExpert\Magento\ListApiEndpoints\Command;
 
 use Magento\Framework\App\ObjectManager;
 use N98\Magento\Command\AbstractMagentoCommand;
