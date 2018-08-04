@@ -34,13 +34,12 @@
   ],
   "autoload": {
     "psr-0": {
-      "BitExpert": "src/",
-      "N98": "vendor/n98/magerun/src"
+      "BitExpert": "src/"
     }
   },
   "autoload-dev": {
     "psr-0": {
-      "N98": "vendor/n98/magerun/tests"
+      "BitExpert": "tests/BitExpert/Magento/ListApiEndpoints/Command"
     }
   },
   "scripts": {

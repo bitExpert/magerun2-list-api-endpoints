@@ -11,9 +11,9 @@
 
 namespace BitExpert\Magento\ListApiEndpoints\Command;
 
+use InvalidArgumentException;
 use Magento\Framework\App\ObjectManager;
 use N98\Magento\Command\AbstractMagentoCommand;
-use Psr\Log\InvalidArgumentException;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -21,9 +21,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ListApiEndpoints extends AbstractMagentoCommand
 {
-
     const OPTION_OUTPUT_FORMAT = 'output-format';
+    const OPTION_FILTER_METHOD = 'method';
 
+    /**
+     * {@inheritdoc}
+     */
     protected function configure()
     {
         $this
@@ -35,21 +38,27 @@ class ListApiEndpoints extends AbstractMagentoCommand
                 InputOption::VALUE_OPTIONAL,
                 'Specify the desired output format [table (default)]',
                 'table'
+            )
+            ->addOption(
+                self::OPTION_FILTER_METHOD,
+                'm',
+                InputOption::VALUE_OPTIONAL,
+                'Filters routes for given method. Pass multiple methods as comma-separated list',
+                ''
             );
     }
 
     /**
-     * @param \Symfony\Component\Console\Input\InputInterface $input
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @return int|void
+     * {@inheritdoc}
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $this->detectMagento($output);
         if ($this->initMagento()) {
-            $services = $this->getDefinedServices();
-            $outputFormat = $input->getOption(self::OPTION_OUTPUT_FORMAT);
+            $methodFilter = $input->getOption(self::OPTION_FILTER_METHOD);
+            $services = $this->filterServices($this->getDefinedServices(), $methodFilter);
 
+            $outputFormat = $input->getOption(self::OPTION_OUTPUT_FORMAT);
             switch ($outputFormat) {
                 case 'table':
                     $this->printAsTable($services, $output);
@@ -80,16 +89,46 @@ class ListApiEndpoints extends AbstractMagentoCommand
         $table = new Table($output);
         $table->setHeaders(array('Method', "Route", "Resources"));
 
-        foreach ($services['routes'] as $route => $methods) {
-            foreach ($methods as $method => $config) {
-                $table->addRow([
-                    sprintf('<fg=green>%s</>', $method),
-                    sprintf('<fg=white>%s</>', $route),
-                    sprintf('<fg=red>%s</>', json_encode($config['resources']))
-                ]);
+        if(isset($services['routes']) && is_array($services['routes'])) {
+            foreach ($services['routes'] as $route => $methods) {
+                foreach ($methods as $method => $config) {
+                    $table->addRow([
+                        sprintf('<fg=green>%s</>', $method),
+                        sprintf('<fg=white>%s</>', $route),
+                        sprintf('<fg=red>%s</>', json_encode($config['resources']))
+                    ]);
+                }
             }
         }
 
         $table->render();
+    }
+
+    /**
+     * Remove routes from given $services array that do not match given $methodsToFilter. $methodsToFilter can
+     * contain a single HTTP method like GET or POST or multiple ones separated by a comma.
+     *
+     * @param array $services
+     * @param string $methodsToFilter
+     * @return array
+     */
+    private function filterServices(array $services, $methodsToFilter)
+    {
+        if(empty($methodsToFilter)) {
+            return $services;
+        }
+
+        $methodsToFilterArray = explode(',', strtoupper($methodsToFilter));
+        if(isset($services['routes']) && is_array($services['routes'])) {
+            foreach ($services['routes'] as $route => $methods) {
+                foreach ($methods as $method => $config) {
+                    if(!in_array($method, $methodsToFilterArray)) {
+                        unset($services['routes'][$route][$method]);
+                    }
+                }
+            }
+        }
+
+        return $services;
     }
 }
