@@ -44,4 +44,4 @@ well as what we expect from you.
 
 ## License
 
-This plugin is released under the MIT license.
+This plugin is released under the Apache 2.0 license.

@@ -147,7 +147,7 @@ Delta compression using up to 2 threads.
 Compression objects: 100% (18/18), done.
 Writing objects: 100% (20/20), 8.19KiB, done.
 Total 20 (delta 12), reused 0 (delta 0)
-To ssh://git@github.com/{username}/disco.git
+To ssh://git@github.com/{username}/magerun2-list-api-endpoints.git
    b5583aa..4f51698  HEAD -> master
 ```
 
