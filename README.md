@@ -18,16 +18,30 @@ composer.phar require --dev bitexpert/magerun2-list-api-endpoints
 This plugin adds the `api:list:endpoints` command to magerun2.
 
 You are able to filter routes by their respective HTTP methods. To only
-see GET routes, run magerun2 like this:
+see `GET` routes, run magerun2 like this:
 
 ```
 magerun2 api:list:endpoints --method=get
 ```
 
-To list all GET and POST routes, pass a comma-separated list as method argument:
+To list all `GET` and `POST` routes, pass a comma-separated list as method argument:
 
 ```
 magerun2 api:list:endpoints --method=get,post
+```
+
+You are able to filter routes by their url. To only see `customers` routes,
+run magerun2 like this:
+
+```
+magerun2 api:list:endpoints --route=customers
+```
+
+Both filters can be combined, to show only `customers` routes with the `GET`
+method, run magerun2 like this:
+
+```
+magerun2 api:list:endpoints --route=customers --method=get
 ```
 
 ## Contribute

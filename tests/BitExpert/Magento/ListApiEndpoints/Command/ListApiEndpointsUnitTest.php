@@ -24,6 +24,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 class ListApiEndpointsUnitTest extends TestCase
 {
     /**
+     * Number of lines rendered for a table without any data, just the table header
+     */
+    const EMPTY_TABLE_OUTPUT_LINES = 3;
+    /**
+     * Minimum number of lines rendered for a table with data and the table header
+     */
+    const TABLE_OUTPUT_LINES = 4;
+    /**
      * @var InputInterface
      */
     private $input;
@@ -74,12 +82,13 @@ class ListApiEndpointsUnitTest extends TestCase
     public function withOutputFormatParameterSetTheCommandWillRenderTableStructure()
     {
         // since no services are returned, just the table header is rendered
-        $this->output->expects($this->exactly($this->countTableRowsToPrint()))
+        $this->output->expects($this->exactly(self::EMPTY_TABLE_OUTPUT_LINES))
             ->method('writeln');
 
         $this->input->expects($this->any())
             ->method('getOption')
             ->will($this->returnValueMap([
+                [ListApiEndpoints::OPTION_FILTER_ROUTE, ''],
                 [ListApiEndpoints::OPTION_FILTER_METHOD, ''],
                 [ListApiEndpoints::OPTION_OUTPUT_FORMAT, 'table'],
             ]));
@@ -103,12 +112,13 @@ class ListApiEndpointsUnitTest extends TestCase
             ]
         ];
 
-        $this->output->expects($this->exactly($this->countTableRowsToPrint($services)))
+        $this->output->expects($this->exactly(self::TABLE_OUTPUT_LINES + 1))
             ->method('writeln');
 
         $this->input->expects($this->any())
             ->method('getOption')
             ->will($this->returnValueMap([
+                [ListApiEndpoints::OPTION_FILTER_ROUTE, ''],
                 [ListApiEndpoints::OPTION_FILTER_METHOD, ''],
                 [ListApiEndpoints::OPTION_OUTPUT_FORMAT, 'table'],
             ]));
@@ -124,7 +134,7 @@ class ListApiEndpointsUnitTest extends TestCase
     /**
      * @test
      */
-    public function forEachFilteredRouteTheCommandWillRenderTableRow()
+    public function forEachFilteredRouteByMethodTheCommandWillRenderTableRow()
     {
         $filter = 'GET';
         $services['routes'] = [
@@ -139,12 +149,13 @@ class ListApiEndpointsUnitTest extends TestCase
             ],
         ];
 
-        $this->output->expects($this->exactly($this->countTableRowsToPrint($services, $filter)))
+        $this->output->expects($this->exactly(self::TABLE_OUTPUT_LINES + 2))
             ->method('writeln');
 
         $this->input->expects($this->any())
             ->method('getOption')
             ->will($this->returnValueMap([
+                [ListApiEndpoints::OPTION_FILTER_ROUTE, ''],
                 [ListApiEndpoints::OPTION_FILTER_METHOD, $filter],
                 [ListApiEndpoints::OPTION_OUTPUT_FORMAT, 'table'],
             ]));
@@ -160,7 +171,7 @@ class ListApiEndpointsUnitTest extends TestCase
     /**
      * @test
      */
-    public function forMultipleFilteredRoutesTheCommandWillRenderTableRow()
+    public function forMultipleFilteredRoutesByMethodTheCommandWillRenderTableRow()
     {
         $filter = 'GET, POST';
         $services['routes'] = [
@@ -175,12 +186,89 @@ class ListApiEndpointsUnitTest extends TestCase
             ],
         ];
 
-        $this->output->expects($this->exactly($this->countTableRowsToPrint($services, $filter)))
+        $this->output->expects($this->exactly(self::TABLE_OUTPUT_LINES + 3))
             ->method('writeln');
 
         $this->input->expects($this->any())
             ->method('getOption')
             ->will($this->returnValueMap([
+                [ListApiEndpoints::OPTION_FILTER_ROUTE, ''],
+                [ListApiEndpoints::OPTION_FILTER_METHOD, $filter],
+                [ListApiEndpoints::OPTION_OUTPUT_FORMAT, 'table'],
+            ]));
+
+        /** @var ListApiEndpoints $command */
+        $command = $this->getApiEndpointsMock();
+        $command->method('getDefinedServices')
+            ->willReturn($services);
+        $command->setApplication($this->application);
+        $command->run($this->input, $this->output);
+    }
+
+    /**
+     * @test
+     */
+    public function forMultipleFilteredRoutesByRouteTheCommandWillRenderTableRow()
+    {
+        $filter = '';
+        $route = 'other';
+        $services['routes'] = [
+            '/route' => [
+                'GET' => ['resources' => '{}'],
+                'PUT' => ['resources' => '{}']
+            ],
+            '/other-route' => [
+                'GET' => ['resources' => '{}'],
+                'POST' => ['resources' => '{}'],
+                'DELETE' => ['resources' => '{}']
+            ],
+        ];
+
+        $this->output->expects($this->exactly(self::TABLE_OUTPUT_LINES + 3))
+            ->method('writeln');
+
+        $this->input->expects($this->any())
+            ->method('getOption')
+            ->will($this->returnValueMap([
+                [ListApiEndpoints::OPTION_FILTER_ROUTE, $route],
+                [ListApiEndpoints::OPTION_FILTER_METHOD, $filter],
+                [ListApiEndpoints::OPTION_OUTPUT_FORMAT, 'table'],
+            ]));
+
+        /** @var ListApiEndpoints $command */
+        $command = $this->getApiEndpointsMock();
+        $command->method('getDefinedServices')
+            ->willReturn($services);
+        $command->setApplication($this->application);
+        $command->run($this->input, $this->output);
+    }
+
+    /**
+     * @test
+     */
+    public function forMultipleFilteredRoutesByMethodAndRouteTheCommandWillRenderTableRow()
+    {
+        $filter = 'GET, POST';
+        $route = 'other';
+        $services['routes'] = [
+            '/route' => [
+                'GET' => ['resources' => '{}'],
+                'PUT' => ['resources' => '{}']
+            ],
+            '/other-route' => [
+                'GET' => ['resources' => '{}'],
+                'POST' => ['resources' => '{}'],
+                'DELETE' => ['resources' => '{}']
+            ],
+        ];
+
+        $this->output->expects($this->exactly(self::TABLE_OUTPUT_LINES + 2))
+            ->method('writeln');
+
+        $this->input->expects($this->any())
+            ->method('getOption')
+            ->will($this->returnValueMap([
+                [ListApiEndpoints::OPTION_FILTER_ROUTE, $route],
                 [ListApiEndpoints::OPTION_FILTER_METHOD, $filter],
                 [ListApiEndpoints::OPTION_OUTPUT_FORMAT, 'table'],
             ]));
@@ -211,48 +299,5 @@ class ListApiEndpointsUnitTest extends TestCase
         $command->method('initMagento')
             ->willReturn(true);
         return $command;
-    }
-
-    /**
-     * Helper method to count the routes in given $services array.
-     *
-     * @param array $services
-     * @param string $filter
-     * @return int
-     */
-    protected function countRoutes(array $services, $filter = '')
-    {
-        $routesCounter = 0;
-        $methodsToFilterArray = explode(',', strtoupper($filter));
-
-        if(isset($services['routes']) && is_array($services['routes'])) {
-            foreach ($services['routes'] as $route => $methods) {
-                foreach ($methods as $method => $config) {
-                    if(empty($filter) || in_array($method, $methodsToFilterArray)) {
-                        $routesCounter++;
-                    }
-                }
-            }
-        }
-
-        return $routesCounter;
-    }
-
-    /**
-     * Helper method to count all the rows printed by the Symfony Console Table component
-     * based on the given input parameters.
-     *
-     * @param array $services
-     * @param string $filter
-     * @return int
-     */
-    protected function countTableRowsToPrint(array $services = [], $filter = '')
-    {
-        if (count($services) === 0 && empty($filter)) {
-            // default amount of rows that Symfony Console Table component will render
-            return 3;
-        }
-
-        return 4 + $this->countRoutes($services, $filter);
     }
 }

@@ -23,6 +23,7 @@ class ListApiEndpoints extends AbstractMagentoCommand
 {
     const OPTION_OUTPUT_FORMAT = 'output-format';
     const OPTION_FILTER_METHOD = 'method';
+    const OPTION_FILTER_ROUTE = 'route';
 
     /**
      * {@inheritdoc}
@@ -45,6 +46,13 @@ class ListApiEndpoints extends AbstractMagentoCommand
                 InputOption::VALUE_OPTIONAL,
                 'Filters routes for given method. Pass multiple methods as comma-separated list',
                 ''
+            )
+            ->addOption(
+                self::OPTION_FILTER_ROUTE,
+                'r',
+                InputOption::VALUE_OPTIONAL,
+                'Filters routes by given part',
+                ''
             );
     }
 
@@ -56,7 +64,9 @@ class ListApiEndpoints extends AbstractMagentoCommand
         $this->detectMagento($output);
         if ($this->initMagento()) {
             $methodFilter = $input->getOption(self::OPTION_FILTER_METHOD);
-            $services = $this->filterServices($this->getDefinedServices(), $methodFilter);
+            $routeFilter = $input->getOption(self::OPTION_FILTER_ROUTE);
+            $services = $this->getDefinedServices();
+            $services = $this->filterServices($services, $methodFilter, $routeFilter);
 
             $outputFormat = $input->getOption(self::OPTION_OUTPUT_FORMAT);
             switch ($outputFormat) {
@@ -110,16 +120,29 @@ class ListApiEndpoints extends AbstractMagentoCommand
      *
      * @param array $services
      * @param string $methodsToFilter
+     * @param string $routesToFilter
      * @return array
      */
-    private function filterServices(array $services, $methodsToFilter)
+    private function filterServices(array $services, $methodsToFilter, $routesToFilter)
     {
-        if(empty($methodsToFilter)) {
+        if(!isset($services['routes']) || !is_array($services['routes'])) {
             return $services;
         }
 
-        $methodsToFilterArray = explode(',', strtoupper($methodsToFilter));
-        if(isset($services['routes']) && is_array($services['routes'])) {
+        if(!empty($routesToFilter)) {
+            foreach ($services['routes'] as $route => $methods) {
+                if (strpos($route, $routesToFilter) === false) {
+                    unset($services['routes'][$route]);
+                }
+            }
+        }
+
+        if(!empty($methodsToFilter)) {
+            $methodsToFilterArray = explode(',', strtoupper($methodsToFilter));
+            array_walk($methodsToFilterArray, function(&$value, $index) {
+                $value = trim($value);
+            });
+
             foreach ($services['routes'] as $route => $methods) {
                 foreach ($methods as $method => $config) {
                     if(!in_array($method, $methodsToFilterArray)) {
