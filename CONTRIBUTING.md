@@ -33,7 +33,7 @@ To run tests:
 
 ```console
 $ git clone git@github.com:bitExpert/magerun2-list-api-endpoints.git
-$ cd disco
+$ cd magerun2-list-api-endpoints
 ```
 
 2. Install dependencies via composer:
@@ -84,7 +84,7 @@ We recommend using [GitHub](https://github.com), as that is where the component 
 
 ```console
 $ git clone git@github.com:bitExpert/magerun2-list-api-endpoints.git
-$ cd disco
+$ cd magerun2-list-api-endpoints
 ```
 
 4. Add a remote to your fork; substitute your GitHub username in the command
