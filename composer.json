@@ -37,13 +37,13 @@
     }
   ],
   "autoload": {
-    "psr-0": {
-      "BitExpert": "src/"
+    "psr-4": {
+      "BitExpert\\Magento\\ListApiEndpoints\\": "src/BitExpert/Magento/ListApiEndpoints"
     }
   },
   "autoload-dev": {
-    "psr-0": {
-      "BitExpert": "tests/BitExpert/Magento/ListApiEndpoints/Command"
+    "psr-4": {
+      "BitExpert\\Magento\\ListApiEndpoints\\": "tests/BitExpert/Magento/ListApiEndpoints"
     }
   },
   "scripts": {
