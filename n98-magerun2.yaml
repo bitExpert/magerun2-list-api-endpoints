@@ -1,5 +1,5 @@
 autoloaders:
-  BitExpert: %module%/src
+  BitExpert\Magento\ListApiEndpoints: %module%/src
 
 commands:
   customCommands:
