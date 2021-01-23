@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f336f2c5410ac8100afc06708a21c9ba",
+    "content-hash": "6c76b22719d4f10402248bd324b419ca",
     "packages": [
         {
             "name": "captainhook/captainhook",
@@ -6420,6 +6420,69 @@
             "time": "2019-01-01T23:59:15+00:00"
         },
         {
+            "name": "bitexpert/phpstan-magento",
+            "version": "v0.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bitExpert/phpstan-magento.git",
+                "reference": "682413acbece6081cde656f69447c7a38ce0011b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bitExpert/phpstan-magento/zipball/682413acbece6081cde656f69447c7a38ce0011b",
+                "reference": "682413acbece6081cde656f69447c7a38ce0011b",
+                "shasum": ""
+            },
+            "require": {
+                "magento/framework": ">=101.0.0",
+                "nette/neon": "^3.1",
+                "php": "^7.2.0",
+                "phpstan/phpstan": "^0.12.23"
+            },
+            "require-dev": {
+                "bitexpert/phing-securitychecker": "^0.4.0",
+                "captainhook/captainhook": "^5.3.0",
+                "captainhook/plugin-composer": "^5.2.1",
+                "mikey179/vfsstream": "^1.6.8",
+                "nikic/php-parser": "^4.4.0",
+                "phing/phing": "^2.16.3",
+                "phpstan/extension-installer": "^1.0.4",
+                "phpstan/phpstan-phpunit": "^0.12.10",
+                "phpunit/phpunit": "^8.5.5",
+                "squizlabs/php_codesniffer": "^3.5.5"
+            },
+            "type": "phpstan-extension",
+            "extra": {
+                "phpstan": {
+                    "includes": [
+                        "extension.neon"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "bitExpert\\PHPStan\\": "src/bitExpert/PHPStan"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stephan Hochdörfer",
+                    "email": "S.Hochdoerfer@bitExpert.de",
+                    "homepage": "http://www.bitExpert.de"
+                }
+            ],
+            "description": "PHPStan Magento Extension",
+            "support": {
+                "issues": "https://github.com/bitExpert/phpstan-magento/issues",
+                "source": "https://github.com/bitExpert/phpstan-magento/tree/v0.6.0"
+            },
+            "time": "2021-01-22T19:07:54+00:00"
+        },
+        {
             "name": "captainhook/plugin-composer",
             "version": "5.2.3",
             "source": {
@@ -6794,6 +6857,72 @@
                 "magerun2"
             ],
             "time": "2020-12-05T12:15:05+00:00"
+        },
+        {
+            "name": "nette/neon",
+            "version": "v3.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/neon.git",
+                "reference": "a5b3a60833d2ef55283a82d0c30b45d136b29e75"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/neon/zipball/a5b3a60833d2ef55283a82d0c30b45d136b29e75",
+                "reference": "a5b3a60833d2ef55283a82d0c30b45d136b29e75",
+                "shasum": ""
+            },
+            "require": {
+                "ext-iconv": "*",
+                "ext-json": "*",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "nette/tester": "^2.0",
+                "phpstan/phpstan": "^0.12",
+                "tracy/tracy": "^2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.2-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0-only",
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "🍸 Nette NEON: encodes and decodes NEON file format.",
+            "homepage": "https://ne-on.org",
+            "keywords": [
+                "export",
+                "import",
+                "neon",
+                "nette",
+                "yaml"
+            ],
+            "support": {
+                "issues": "https://github.com/nette/neon/issues",
+                "source": "https://github.com/nette/neon/tree/master"
+            },
+            "time": "2020-07-31T12:28:05+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -7300,6 +7429,51 @@
                 "stub"
             ],
             "time": "2020-12-19T10:15:11+00:00"
+        },
+        {
+            "name": "phpstan/extension-installer",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/extension-installer.git",
+                "reference": "66c7adc9dfa38b6b5838a9fb728b68a7d8348051"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/extension-installer/zipball/66c7adc9dfa38b6b5838a9fb728b68a7d8348051",
+                "reference": "66c7adc9dfa38b6b5838a9fb728b68a7d8348051",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1 || ^2.0",
+                "php": "^7.1 || ^8.0",
+                "phpstan/phpstan": ">=0.11.6"
+            },
+            "require-dev": {
+                "composer/composer": "^1.8",
+                "phing/phing": "^2.16.3",
+                "php-parallel-lint/php-parallel-lint": "^1.2.0",
+                "phpstan/phpstan-strict-rules": "^0.11 || ^0.12"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "PHPStan\\ExtensionInstaller\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "PHPStan\\ExtensionInstaller\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Composer plugin for automatic installation of PHPStan extensions",
+            "support": {
+                "issues": "https://github.com/phpstan/extension-installer/issues",
+                "source": "https://github.com/phpstan/extension-installer/tree/1.1.0"
+            },
+            "time": "2020-12-13T13:06:13+00:00"
         },
         {
             "name": "phpstan/phpstan",
