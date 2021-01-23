@@ -10,6 +10,14 @@
         </exec>
     </target>
 
+    <target name="analyse">
+        <exec executable="./vendor/bin/phpstan"
+              passthru="true"
+              checkreturn="true">
+            <arg value="analyze"/>
+        </exec>
+    </target>
+
     <target name="lint">
         <phplint>
             <fileset dir="${phing.dir}/src">
