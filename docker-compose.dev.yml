@@ -1,0 +1,22 @@
+# Mark Shust's Docker Configuration for Magento
+# (https://github.com/markshust/docker-magento)
+#
+# Version 34.2.0
+
+version: "3"
+
+services:
+  app:
+    volumes: &appvolumes
+      - ~/.composer:/var/www/.composer
+      - ~/.composer/auth.json:/var/www/html/auth.json
+      - ./:/var/www/.n98-magerun2/modules/magerun2-list-api-endpoints/:cached
+
+  phpfpm:
+    volumes: *appvolumes
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "1025"
+      - "8025:8025"
