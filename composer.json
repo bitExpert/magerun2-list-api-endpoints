@@ -28,7 +28,8 @@
   "require-dev": {
     "n98/magerun2": "^4.0.0",
     "phpunit/phpunit": "^9.5",
-    "squizlabs/php_codesniffer": "^3.5"
+    "squizlabs/php_codesniffer": "^3.5",
+    "phing/phing": "^2.16"
   },
   "repositories": [
     {
@@ -51,8 +52,8 @@
       "@cs-check",
       "@test"
     ],
-    "cs-check": "./vendor/bin/phpcs --standard=PSR2 ./src ./tests",
+    "cs-check": "vendor/bin/phing sniff",
     "cs-fix": "vendor/bin/phpcbf",
-    "test": "vendor/bin/phpunit"
+    "test": "vendor/bin/phing unit"
   }
 }
