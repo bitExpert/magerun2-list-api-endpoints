@@ -34,7 +34,8 @@
     "phpstan/phpstan": "^0.12.68",
     "captainhook/plugin-composer": "^5.2",
     "bitexpert/phpstan-magento": "^0.6.0",
-    "phpstan/extension-installer": "^1.1"
+    "phpstan/extension-installer": "^1.1",
+    "roave/security-advisories": "dev-latest"
   },
   "repositories": [
     {
