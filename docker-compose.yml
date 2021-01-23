@@ -1,0 +1,54 @@
+# Mark Shust's Docker Configuration for Magento
+# (https://github.com/markshust/docker-magento)
+#
+# Version 34.2.0
+
+version: "3"
+
+services:
+  app:
+    image: markoshust/magento-nginx:1.18-4
+    ports:
+      - "80:8000"
+      - "443:8443"
+    links:
+      - db
+      - phpfpm
+    volumes: &appvolumes
+      - ~/.composer:/var/www/.composer:cached
+      - appdata:/var/www/html
+      - sockdata:/sock
+      - ssldata:/etc/nginx/certs
+
+  phpfpm:
+    image: markoshust/magento-php:7.4-fpm-2
+    links:
+      - db
+    volumes: *appvolumes
+
+  db:
+    image: percona:5.7
+    command: --max_allowed_packet=64M
+    ports:
+      - "3306:3306"
+    env_file: env/db.env
+    volumes:
+      - dbdata:/var/lib/mysql
+
+  redis:
+    image: redis:5.0-alpine
+
+  elasticsearch:
+    image: markoshust/magento-elasticsearch:7.6.2-2
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - "discovery.type=single-node"
+
+volumes:
+  appdata:
+  dbdata:
+  rabbitmqdata:
+  sockdata:
+  ssldata:
