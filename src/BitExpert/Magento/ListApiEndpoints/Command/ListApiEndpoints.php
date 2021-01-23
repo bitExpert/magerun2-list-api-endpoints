@@ -99,7 +99,7 @@ class ListApiEndpoints extends AbstractMagentoCommand
         $table = new Table($output);
         $table->setHeaders(array('Method', "Route", "Resources"));
 
-        if(isset($services['routes']) && is_array($services['routes'])) {
+        if (isset($services['routes']) && is_array($services['routes'])) {
             foreach ($services['routes'] as $route => $methods) {
                 foreach ($methods as $method => $config) {
                     $table->addRow([
@@ -125,11 +125,11 @@ class ListApiEndpoints extends AbstractMagentoCommand
      */
     private function filterServices(array $services, $methodsToFilter, $routesToFilter)
     {
-        if(!isset($services['routes']) || !is_array($services['routes'])) {
+        if (!isset($services['routes']) || !is_array($services['routes'])) {
             return $services;
         }
 
-        if(!empty($routesToFilter)) {
+        if (!empty($routesToFilter)) {
             foreach ($services['routes'] as $route => $methods) {
                 if (strpos($route, $routesToFilter) === false) {
                     unset($services['routes'][$route]);
@@ -137,15 +137,15 @@ class ListApiEndpoints extends AbstractMagentoCommand
             }
         }
 
-        if(!empty($methodsToFilter)) {
+        if (!empty($methodsToFilter)) {
             $methodsToFilterArray = explode(',', strtoupper($methodsToFilter));
-            array_walk($methodsToFilterArray, function(&$value, $index) {
+            array_walk($methodsToFilterArray, function (&$value, $index) {
                 $value = trim($value);
             });
 
             foreach ($services['routes'] as $route => $methods) {
                 foreach ($methods as $method => $config) {
-                    if(!in_array($method, $methodsToFilterArray)) {
+                    if (!in_array($method, $methodsToFilterArray)) {
                         unset($services['routes'][$route][$method]);
                     }
                 }

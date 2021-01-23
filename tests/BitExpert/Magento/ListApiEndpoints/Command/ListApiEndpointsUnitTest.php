@@ -47,7 +47,7 @@ class ListApiEndpointsUnitTest extends TestCase
     /**
      * {@inheritDoc}
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -282,7 +282,8 @@ class ListApiEndpointsUnitTest extends TestCase
     }
 
     /**
-     * Helper method to configure a mocked version of {@link \BitExpert\Magento\LisaApiEndpoints\Command\ListApiEndpoints}.
+     * Helper method to configure a mocked version of
+     * {@link \BitExpert\Magento\LisaApiEndpoints\Command\ListApiEndpoints}.
      *
      * @return ListApiEndpoints|\PHPUnit\Framework\MockObject\MockObject
      */
