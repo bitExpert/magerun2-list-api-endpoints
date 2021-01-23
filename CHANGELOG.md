@@ -28,4 +28,4 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ## 1.0.0
 
-Initial release of the magerun2 plugin: List all API endpoints package.
+Initial release of the magerun2 list-api-endpoints plugin.
