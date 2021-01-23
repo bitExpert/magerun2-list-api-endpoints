@@ -47,7 +47,7 @@ class ListApiEndpointsUnitTest extends TestCase
     /**
      * {@inheritDoc}
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
