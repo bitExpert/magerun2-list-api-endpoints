@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 2.0.1
+
+### Added
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- [#21](https://github.com/bitExpert/magerun2-list-api-endpoints/pull/21) Fix path typo in Docker setup
+- [#20](https://github.com/bitExpert/magerun2-list-api-endpoints/pull/20) Turn CaptainHook into a dev dependency
+- [#19](https://github.com/bitExpert/magerun2-list-api-endpoints/pull/19) Add Roave Security Advisories dependency
+
 ## 2.0.0
 
 ### Added
