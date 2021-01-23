@@ -1,8 +1,9 @@
 # magerun2 plugin: List all API endpoints
 
-[![Build Status](https://travis-ci.org/bitExpert/magerun2-list-api-endpoints.svg?branch=master)](https://travis-ci.org/bitExpert/magerun2-list-api-endpoints)
-
 This is a plugin for [netz98 Magerun2](https://github.com/netz98/n98-magerun2) to list all API endpoints.
+
+[![Build Status](https://github.com/bitExpert/magerun2-list-api-endpoints/workflows/ci/badge.svg?branch=master)](https://github.com/bitExpert/magerun2-list-api-endpoints)
+[![Coverage Status](https://coveralls.io/repos/github/bitExpert/magerun2-list-api-endpoints/badge.svg?branch=master)](https://coveralls.io/github/bitExpert/magerun2-list-api-endpoints?branch=master)
 
 ## Installation
 
