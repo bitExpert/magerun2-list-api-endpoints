@@ -23,14 +23,16 @@
   "require": {
     "php": "^7.4",
     "magento/module-webapi": "100.3.5|100.4.0",
-    "magento/framework": "102.0.6|103.0.0|103.0.1"
+    "magento/framework": "102.0.6|103.0.0|103.0.1",
+    "captainhook/captainhook": "^5.4"
   },
   "require-dev": {
     "n98/magerun2": "^4.0.0",
     "phpunit/phpunit": "^9.5",
     "squizlabs/php_codesniffer": "^3.5",
     "phing/phing": "^2.16",
-    "phpstan/phpstan": "^0.12.68"
+    "phpstan/phpstan": "^0.12.68",
+    "captainhook/plugin-composer": "^5.2"
   },
   "repositories": [
     {
