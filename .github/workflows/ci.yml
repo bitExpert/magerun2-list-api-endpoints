@@ -1,0 +1,61 @@
+name: ci
+on: [push, pull_request]
+
+jobs:
+  run:
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: ['ubuntu-latest']
+        php-versions: ['7.4']
+        coveralls: [false]
+        include:
+          - operating-system: 'ubuntu-latest'
+            php-versions: '7.4'
+            coveralls: true
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Configure PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          tools: composer:v1
+          coverage: xdebug
+
+      - name: Install Composer dependencies
+        run: composer install
+
+      - name: Linting code
+        run: ./vendor/bin/phing lint
+
+      - name: Codesniffer
+        run: ./vendor/bin/phing sniff
+
+      - name: Static code analysis
+        run: ./vendor/bin/phing analyse
+
+      - name: Magerun
+        if: matrix.coveralls == false
+        run: |
+          wget https://files.magerun.net/n98-magerun2-latest.phar
+          mkdir -p ~/.n98-magerun2/modules
+          ln -s $(pwd) ~/.n98-magerun2/modules/magerun2-list-api-endpoints
+          php n98-magerun2-latest.phar help api:list:endpoints
+
+      - name: Unittests
+        if: matrix.coveralls == false
+        run: ./vendor/bin/phing unit
+
+      - name: Unittests with coverage
+        if: matrix.coveralls == true
+        run: ./vendor/bin/phing unit-with-coverage
+
+      - name: Coveralls report
+        if: matrix.coveralls == true
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          composer require php-coveralls/php-coveralls
+          ./vendor/bin/php-coveralls --coverage_clover=clover.xml -v
