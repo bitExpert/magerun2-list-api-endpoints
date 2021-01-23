@@ -19,8 +19,8 @@ bin/rootnotty chown -R app.app /var/www/html
 bin/rootnotty chmod +x bin/magento
 
 echo "Downloading magerun..."
-bin/root curl -o /var/www/html/magerun2.phar https://files.magerun.net/n98-magerun2-latest.phar
-bin/rootnotty chmod +x /var/www/html/magerun2.phar
+bin/root curl -o /var/www/html/bin/magerun2.phar https://files.magerun.net/n98-magerun2-latest.phar
+bin/rootnotty chmod +x /var/www/html/bin/magerun2.phar
 
 echo "Forcing reinstall of composer deps to ensure perms & reqs..."
 bin/clinotty composer global require hirak/prestissimo
