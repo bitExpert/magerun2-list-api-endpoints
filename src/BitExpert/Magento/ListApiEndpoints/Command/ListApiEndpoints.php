@@ -28,7 +28,7 @@ class ListApiEndpoints extends AbstractMagentoCommand
     /**
      * {@inheritdoc}
      */
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('api:list:endpoints')
@@ -64,7 +64,9 @@ class ListApiEndpoints extends AbstractMagentoCommand
         $this->detectMagento($output);
         if ($this->initMagento()) {
             $methodFilter = $input->getOption(self::OPTION_FILTER_METHOD);
+            $methodFilter = is_string($methodFilter) ? $methodFilter : '';
             $routeFilter = $input->getOption(self::OPTION_FILTER_ROUTE);
+            $routeFilter = is_string($routeFilter) ? $routeFilter : '';
             $services = $this->getDefinedServices();
             $services = $this->filterServices($services, $methodFilter, $routeFilter);
 
@@ -77,10 +79,12 @@ class ListApiEndpoints extends AbstractMagentoCommand
                     throw new InvalidArgumentException('Selected output-format is not a valid option');
             }
         }
+
+        return 0;
     }
 
     /**
-     * @return array
+     * @return array<string, array<string, array<string, array<string, string>>>>
      */
     protected function getDefinedServices()
     {
@@ -90,8 +94,9 @@ class ListApiEndpoints extends AbstractMagentoCommand
     }
 
     /**
-     * @param array $services
+     * @param array<string, array<string, array<string, array<string, string>>>> $services
      * @param OutputInterface $output
+     * @return void
      */
     private function printAsTable(array $services, OutputInterface $output)
     {
@@ -118,10 +123,10 @@ class ListApiEndpoints extends AbstractMagentoCommand
      * Remove routes from given $services array that do not match given $methodsToFilter. $methodsToFilter can
      * contain a single HTTP method like GET or POST or multiple ones separated by a comma.
      *
-     * @param array $services
+     * @param array<string, array<string, array<string, array<string, string>>>> $services
      * @param string $methodsToFilter
      * @param string $routesToFilter
-     * @return array
+     * @return array<string, array<string, array<string, array<string, string>>>>
      */
     private function filterServices(array $services, $methodsToFilter, $routesToFilter)
     {
@@ -129,7 +134,7 @@ class ListApiEndpoints extends AbstractMagentoCommand
             return $services;
         }
 
-        if (!empty($routesToFilter)) {
+        if (is_string($routesToFilter) && !empty($routesToFilter)) {
             foreach ($services['routes'] as $route => $methods) {
                 if (strpos($route, $routesToFilter) === false) {
                     unset($services['routes'][$route]);
@@ -137,7 +142,7 @@ class ListApiEndpoints extends AbstractMagentoCommand
             }
         }
 
-        if (!empty($methodsToFilter)) {
+        if (is_string($methodsToFilter) && !empty($methodsToFilter)) {
             $methodsToFilterArray = explode(',', strtoupper($methodsToFilter));
             array_walk($methodsToFilterArray, function (&$value, $index) {
                 $value = trim($value);
