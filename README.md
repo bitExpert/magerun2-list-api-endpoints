@@ -7,23 +7,27 @@ This is a plugin for [netz98 Magerun2](https://github.com/netz98/n98-magerun2) t
 
 ## Installation
 
-### For your OS-user
-
-n98-magerun2 will automatically load the plugins laying under `~/.n98-magerun2/modules` (create this folder if it does not exist). 
-
-To add this command, simply clone the repository.
-
-```
-git clone git@github.com:bitExpert/magerun2-list-api-endpoints.git ~/.n98-magerun2/modules/magerun2-list-api-endpoints
-```
-
-### For specific projects
-
 The preferred way of installing `bitexpert/magerun2-list-api-endpoints` is through Composer.
 Simply add `bitexpert/magerun2-list-api-endpoints` as a dev dependency:
 
 ```
 composer.phar require --dev bitexpert/magerun2-list-api-endpoints
+```
+
+### Local installation
+
+If you do not want to add the command to one specific project only, you can install the plugin globally by placing the
+code in the `~/.n98-magerun2/modules` directory. If the folder does not already exist in your setup, create the folder
+by running the following command:
+
+```
+mkdir -p  ~/.n98-magerun2/modules
+```
+
+The next thing to do is to clone the repository in a subdirectory of `~/.n98-magerun2/modules`:
+
+```
+git clone git@github.com:bitExpert/magerun2-list-api-endpoints.git ~/.n98-magerun2/modules/magerun2-list-api-endpoints
 ```
 
 ## Usage
