@@ -17,6 +17,10 @@
             {
                 "action": "./vendor/bin/phing analyse",
                 "options": []
+            },
+            {
+                "action": "./vendor/bin/phing infection",
+                "options": []
             }
         ]
     },
