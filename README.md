@@ -4,6 +4,7 @@ This is a plugin for [netz98 Magerun2](https://github.com/netz98/n98-magerun2) t
 
 [![Build Status](https://github.com/bitExpert/magerun2-list-api-endpoints/workflows/ci/badge.svg?branch=master)](https://github.com/bitExpert/magerun2-list-api-endpoints)
 [![Coverage Status](https://coveralls.io/repos/github/bitExpert/magerun2-list-api-endpoints/badge.svg?branch=master)](https://coveralls.io/github/bitExpert/magerun2-list-api-endpoints?branch=master)
+[![Infection MSI](https://badge.stryker-mutator.io/github.com/bitExpert/magerun2-list-api-endpoints/master)](https://infection.github.io)
 
 ## Installation
 
