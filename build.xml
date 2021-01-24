@@ -10,6 +10,13 @@
         </exec>
     </target>
 
+    <target name="infection">
+        <exec executable="./vendor/bin/infection"
+              passthru="true"
+              checkreturn="true">
+        </exec>
+    </target>
+
     <target name="analyse">
         <exec executable="./vendor/bin/phpstan"
               passthru="true"

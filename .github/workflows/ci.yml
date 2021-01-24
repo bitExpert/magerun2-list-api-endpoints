@@ -56,6 +56,11 @@ jobs:
         if: matrix.coveralls == true
         run: ./vendor/bin/phing unit-with-coverage
 
+      - name: Infection for added files
+        run: |
+          git fetch --depth=1 origin $GITHUB_BASE_REF
+          ./vendor/bin/infection -j2 --git-diff-filter=A --git-diff-base=origin/$GITHUB_BASE_REF --logger-github --ignore-msi-with-no-mutations --only-covered
+
       - name: Coveralls report
         if: matrix.coveralls == true
         env:

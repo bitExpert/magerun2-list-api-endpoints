@@ -65,15 +65,18 @@ class ListApiEndpoints extends AbstractMagentoCommand
         if ($this->initMagento()) {
             $methodFilter = $input->getOption(self::OPTION_FILTER_METHOD);
             $methodFilter = is_string($methodFilter) ? $methodFilter : '';
+
             $routeFilter = $input->getOption(self::OPTION_FILTER_ROUTE);
             $routeFilter = is_string($routeFilter) ? $routeFilter : '';
             $services = $this->getDefinedServices();
-            $services = $this->filterServices($services, $methodFilter, $routeFilter);
+            $routes = (isset($services['routes']) and is_array($services['routes'])) ? $services['routes'] : [];
+
+            $routes = $this->filterRoutes($routes, $methodFilter, $routeFilter);
 
             $outputFormat = $input->getOption(self::OPTION_OUTPUT_FORMAT);
             switch ($outputFormat) {
                 case 'table':
-                    $this->printAsTable($services, $output);
+                    $this->printRoutesAsTable($routes, $output);
                     break;
                 default:
                     throw new InvalidArgumentException('Selected output-format is not a valid option');
@@ -86,7 +89,7 @@ class ListApiEndpoints extends AbstractMagentoCommand
     /**
      * @return array<string, array<string, array<string, array<string, string>>>>
      */
-    protected function getDefinedServices()
+    protected function getDefinedServices(): array
     {
         /** @var \Magento\Webapi\Model\Config $serviceConfig */
         $serviceConfig = ObjectManager::getInstance()->get(\Magento\Webapi\Model\Config::class);
@@ -94,25 +97,22 @@ class ListApiEndpoints extends AbstractMagentoCommand
     }
 
     /**
-     * @param array<string, array<string, array<string, array<string, string>>>> $services
+     * @param array<string, array<string, array<string, string>>> $routes
      * @param OutputInterface $output
-     * @return void
      */
-    private function printAsTable(array $services, OutputInterface $output)
+    private function printRoutesAsTable(array $routes, OutputInterface $output): void
     {
         //format the table
         $table = new Table($output);
         $table->setHeaders(array('Method', "Route", "Resources"));
 
-        if (isset($services['routes']) && is_array($services['routes'])) {
-            foreach ($services['routes'] as $route => $methods) {
-                foreach ($methods as $method => $config) {
-                    $table->addRow([
-                        sprintf('<fg=green>%s</>', $method),
-                        sprintf('<fg=white>%s</>', $route),
-                        sprintf('<fg=red>%s</>', json_encode($config['resources']))
-                    ]);
-                }
+        foreach ($routes as $route => $methods) {
+            foreach ($methods as $method => $config) {
+                $table->addRow([
+                    sprintf('<fg=green>%s</>', $method),
+                    sprintf('<fg=white>%s</>', $route),
+                    sprintf('<fg=red>%s</>', json_encode($config['resources']))
+                ]);
             }
         }
 
@@ -123,40 +123,36 @@ class ListApiEndpoints extends AbstractMagentoCommand
      * Remove routes from given $services array that do not match given $methodsToFilter. $methodsToFilter can
      * contain a single HTTP method like GET or POST or multiple ones separated by a comma.
      *
-     * @param array<string, array<string, array<string, array<string, string>>>> $services
+     * @param array<string, array<string, array<string, string>>> $routes
      * @param string $methodsToFilter
      * @param string $routesToFilter
-     * @return array<string, array<string, array<string, array<string, string>>>>
+     * @return array<string, array<string, array<string, string>>>
      */
-    private function filterServices(array $services, $methodsToFilter, $routesToFilter)
+    private function filterRoutes(array $routes, string $methodsToFilter, string $routesToFilter): array
     {
-        if (!isset($services['routes']) || !is_array($services['routes'])) {
-            return $services;
-        }
-
-        if (is_string($routesToFilter) && !empty($routesToFilter)) {
-            foreach ($services['routes'] as $route => $methods) {
+        if (!empty($routesToFilter)) {
+            foreach ($routes as $route => $methods) {
                 if (strpos($route, $routesToFilter) === false) {
-                    unset($services['routes'][$route]);
+                    unset($routes[$route]);
                 }
             }
         }
 
-        if (is_string($methodsToFilter) && !empty($methodsToFilter)) {
+        if (!empty($methodsToFilter)) {
             $methodsToFilterArray = explode(',', strtoupper($methodsToFilter));
             array_walk($methodsToFilterArray, function (&$value, $index) {
                 $value = trim($value);
             });
 
-            foreach ($services['routes'] as $route => $methods) {
+            foreach ($routes as $route => $methods) {
                 foreach ($methods as $method => $config) {
                     if (!in_array($method, $methodsToFilterArray)) {
-                        unset($services['routes'][$route][$method]);
+                        unset($routes[$route][$method]);
                     }
                 }
             }
         }
 
-        return $services;
+        return $routes;
     }
 }
