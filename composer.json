@@ -36,7 +36,7 @@
     "bitexpert/phpstan-magento": "^0.6.0",
     "phpstan/extension-installer": "^1.1",
     "roave/security-advisories": "dev-latest",
-    "infection/infection": "^0.20.2"
+    "infection/infection": "^0.21.0"
   },
   "repositories": [
     {
