@@ -29,14 +29,14 @@
     "n98/magerun2": "^4.0.0",
     "phpunit/phpunit": "^9.5",
     "squizlabs/php_codesniffer": "^3.5",
-    "phing/phing": "^2.16",
     "phpstan/phpstan": "^0.12.68",
     "captainhook/captainhook": "^5.4",
     "captainhook/plugin-composer": "^5.2",
     "bitexpert/phpstan-magento": "^0.6.0",
     "phpstan/extension-installer": "^1.1",
     "roave/security-advisories": "dev-latest",
-    "infection/infection": "^0.21.0"
+    "infection/infection": "^0.21.0",
+    "bitexpert/captainhook-infection": "^0.1.0"
   },
   "repositories": [
     {
@@ -59,8 +59,11 @@
       "@cs-check",
       "@test"
     ],
-    "cs-check": "vendor/bin/phing sniff",
+    "cs-check": "vendor/bin/phpcs --standard=PSR2 ./src ./tests",
     "cs-fix": "vendor/bin/phpcbf",
-    "test": "vendor/bin/phing unit"
+    "analyze": "vendor/bin/phpstan analyze",
+    "test": "vendor/bin/phpunit",
+    "infection": "vendor/bin/infection -j4 --ignore-msi-with-no-mutations --only-covered",
+    "coverage": "vendor/bin/phpunit --coverage-clover clover.xml"
   }
 }

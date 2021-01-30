@@ -15,12 +15,22 @@
         "enabled": true,
         "actions": [
             {
-                "action": "./vendor/bin/phing analyse",
+                "action": "composer analyze",
                 "options": []
             },
             {
-                "action": "./vendor/bin/phing infection",
+                "action": "composer test",
                 "options": []
+            },
+            {
+                "action": "\\bitExpert\\CaptainHook\\Infection\\InfectionAction",
+                "options": {
+                    "args": [
+                        "-j4",
+                        "--ignore-msi-with-no-mutations",
+                        " --only-covered"
+                    ]
+                }
             }
         ]
     },
@@ -28,16 +38,40 @@
         "enabled": true,
         "actions": [
             {
-                "action": "./vendor/bin/phing lint",
-                "options": []
+                "action": "\\CaptainHook\\App\\Hook\\PHP\\Action\\Linting",
+                "options": [],
+                "conditions": [
+                    {
+                        "exec": "\\CaptainHook\\App\\Hook\\Condition\\FileStaged\\OfType",
+                        "args": ["php"]
+                    }
+                ]
             },
             {
-                "action": "./vendor/bin/phing sniff",
-                "options": []
+                "action": "composer cs-check {$STAGED_FILES|of-type:php|separated-by: }",
+                "options": [],
+                "conditions": [
+                    {
+                        "exec": "\\CaptainHook\\App\\Hook\\Condition\\FileStaged\\OfType",
+                        "args": ["php"]
+                    }
+                ]
             },
             {
-                "action": "./vendor/bin/phing unit",
-                "options": []
+                "action": "\\bitExpert\\CaptainHook\\Infection\\InfectionAction",
+                "options": {
+                    "args": [
+                        "-j4",
+                        "--ignore-msi-with-no-mutations",
+                        " --only-covered"
+                    ]
+                },
+                "conditions": [
+                    {
+                        "exec": "\\CaptainHook\\App\\Hook\\Condition\\FileStaged\\OfType",
+                        "args": ["php"]
+                    }
+                ]
             }
         ]
     },
@@ -52,5 +86,25 @@
     "post-merge": {
         "enabled": false,
         "actions": []
+    },
+    "post-change": {
+        "enabled": true,
+        "actions": [
+            {
+                "action": "composer install",
+                "options": [],
+                "conditions": [
+                    {
+                        "exec": "\\CaptainHook\\App\\Hook\\Condition\\FileChanged\\Any",
+                        "args": [
+                            [
+                                "composer.json",
+                                "composer.lock"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 }

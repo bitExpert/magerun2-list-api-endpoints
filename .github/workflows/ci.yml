@@ -31,16 +31,7 @@ jobs:
       - name: Install Composer dependencies
         run: composer install
 
-      - name: Linting code
-        run: ./vendor/bin/phing lint
-
-      - name: Codesniffer
-        run: ./vendor/bin/phing sniff
-
-      - name: Static code analysis
-        run: ./vendor/bin/phing analyse
-
-      - name: Magerun
+      - name: Install Magerun
         if: matrix.coveralls == false
         run: |
           wget https://files.magerun.net/n98-magerun2-latest.phar
@@ -48,20 +39,26 @@ jobs:
           ln -s $(pwd) ~/.n98-magerun2/modules/magerun2-list-api-endpoints
           php n98-magerun2-latest.phar help api:list:endpoints
 
+      - name: Codesniffer
+        run: composer cs-check
+
+      - name: Static code analysis
+        run: composer analyze
+
       - name: Unittests
         if: matrix.coveralls == false
-        run: ./vendor/bin/phing unit
-
-      - name: Unittests with coverage
-        if: matrix.coveralls == true
-        run: ./vendor/bin/phing unit-with-coverage
+        run: composer test
 
       - name: Infection for added files
         env:
           INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
         run: |
           git fetch --depth=1 origin $GITHUB_BASE_REF
-          ./vendor/bin/infection -j2 --git-diff-filter=A --git-diff-base=origin/$GITHUB_BASE_REF --logger-github --ignore-msi-with-no-mutations --only-covered
+          ./vendor/bin/infection -j4 --git-diff-filter=A --git-diff-base=origin/$GITHUB_BASE_REF --logger-github --ignore-msi-with-no-mutations --only-covered
+
+      - name: Unittests with coverage
+        if: matrix.coveralls == true
+        run: composer coverage
 
       - name: Coveralls report
         if: matrix.coveralls == true
