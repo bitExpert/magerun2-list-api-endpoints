@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "14e3d8bcf76ff4d7ad8a768598239ff7",
+    "content-hash": "190ef7998977181988a3f0255f615953",
     "packages": [
         {
             "name": "colinmollenhour/credis",
@@ -6167,16 +6167,16 @@
         },
         {
             "name": "bitexpert/captainhook-infection",
-            "version": "v0.1.0",
+            "version": "v0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bitExpert/captainhook-infection.git",
-                "reference": "08469ffe0298df7c35e53ded40cf7c384b869bf9"
+                "reference": "3215482c8c6ced54236714a4b62821089788e8e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bitExpert/captainhook-infection/zipball/08469ffe0298df7c35e53ded40cf7c384b869bf9",
-                "reference": "08469ffe0298df7c35e53ded40cf7c384b869bf9",
+                "url": "https://api.github.com/repos/bitExpert/captainhook-infection/zipball/3215482c8c6ced54236714a4b62821089788e8e9",
+                "reference": "3215482c8c6ced54236714a4b62821089788e8e9",
                 "shasum": ""
             },
             "require": {
@@ -6186,7 +6186,6 @@
             "require-dev": {
                 "captainhook/plugin-composer": "^5.2",
                 "infection/infection": "^0.21.0",
-                "phing/phing": "^2.16.0",
                 "phpstan/phpstan": "^0.12",
                 "phpunit/phpunit": "^9.5",
                 "roave/security-advisories": "dev-latest",
@@ -6210,7 +6209,7 @@
                 }
             ],
             "description": "Captain Hook Plugin to run InfectionPHP only against the files of the current changeset",
-            "time": "2021-01-30T15:35:39+00:00"
+            "time": "2021-02-05T19:09:43+00:00"
         },
         {
             "name": "bitexpert/phpstan-magento",
