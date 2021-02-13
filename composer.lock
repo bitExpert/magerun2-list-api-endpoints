@@ -2347,14 +2347,14 @@
         },
         {
             "name": "magento/framework",
-            "version": "103.0.2",
+            "version": "103.0.1",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/framework/magento-framework-103.0.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/framework/magento-framework-103.0.1.zip"
             },
             "require": {
                 "colinmollenhour/php-redis-session-abstract": "~1.4.0",
-                "composer/composer": "^1.9 || ^2.0",
+                "composer/composer": "^1.9",
                 "ext-bcmath": "*",
                 "ext-curl": "*",
                 "ext-dom": "*",
@@ -4416,10 +4416,10 @@
         },
         {
             "name": "magento/module-webapi",
-            "version": "100.4.1",
+            "version": "100.4.0",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-webapi/magento-module-webapi-100.4.1.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-webapi/magento-module-webapi-100.4.0.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -7618,16 +7618,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.71",
+            "version": "0.12.76",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "d508fa3b0ecc5fc91ac70c6c7ac2862f968ba2b5"
+                "reference": "7aaaf9a759a29795e8f46d48041af1c1f1b23d38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/d508fa3b0ecc5fc91ac70c6c7ac2862f968ba2b5",
-                "reference": "d508fa3b0ecc5fc91ac70c6c7ac2862f968ba2b5",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/7aaaf9a759a29795e8f46d48041af1c1f1b23d38",
+                "reference": "7aaaf9a759a29795e8f46d48041af1c1f1b23d38",
                 "shasum": ""
             },
             "require": {
@@ -7656,6 +7656,10 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
+            "support": {
+                "issues": "https://github.com/phpstan/phpstan/issues",
+                "source": "https://github.com/phpstan/phpstan/tree/0.12.76"
+            },
             "funding": [
                 {
                     "url": "https://github.com/ondrejmirtes",
@@ -7670,7 +7674,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-02-01T18:24:00+00:00"
+            "time": "2021-02-13T11:47:44+00:00"
         },
         {
             "name": "phpstan/phpstan-strict-rules",
