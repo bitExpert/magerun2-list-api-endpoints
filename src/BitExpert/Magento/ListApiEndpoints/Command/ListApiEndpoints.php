@@ -69,7 +69,7 @@ class ListApiEndpoints extends AbstractMagentoCommand
             $routeFilter = $input->getOption(self::OPTION_FILTER_ROUTE);
             $routeFilter = is_string($routeFilter) ? $routeFilter : '';
             $services = $this->getDefinedServices();
-            $routes = (isset($services['routes']) and is_array($services['routes'])) ? $services['routes'] : [];
+            $routes = isset($services['routes']) ? $services['routes'] : [];
 
             $routes = $this->filterRoutes($routes, $methodFilter, $routeFilter);
 
@@ -130,7 +130,7 @@ class ListApiEndpoints extends AbstractMagentoCommand
      */
     private function filterRoutes(array $routes, string $methodsToFilter, string $routesToFilter): array
     {
-        if (!empty($routesToFilter)) {
+        if ($routesToFilter !== '') {
             foreach ($routes as $route => $methods) {
                 if (strpos($route, $routesToFilter) === false) {
                     unset($routes[$route]);
@@ -138,15 +138,15 @@ class ListApiEndpoints extends AbstractMagentoCommand
             }
         }
 
-        if (!empty($methodsToFilter)) {
+        if ($methodsToFilter !== '') {
             $methodsToFilterArray = explode(',', strtoupper($methodsToFilter));
-            array_walk($methodsToFilterArray, function (&$value, $index) {
+            array_walk($methodsToFilterArray, function (&$value, $index): void {
                 $value = trim($value);
             });
 
             foreach ($routes as $route => $methods) {
                 foreach ($methods as $method => $config) {
-                    if (!in_array($method, $methodsToFilterArray)) {
+                    if (!in_array($method, $methodsToFilterArray, true)) {
                         unset($routes[$route][$method]);
                     }
                 }
