@@ -11,6 +11,7 @@
 
 namespace BitExpert\Magento\ListApiEndpoints\Command;
 
+use PHPUnit\Framework\MockObject\MockObject;
 use RuntimeException;
 use InvalidArgumentException;
 use N98\Magento\Application;
@@ -34,11 +35,11 @@ class ListApiEndpointsUnitTest extends TestCase
      */
     const TABLE_OUTPUT_LINES = 4;
     /**
-     * @var InputInterface
+     * @var MockObject&InputInterface
      */
     private $input;
     /**
-     * @var OutputInterface
+     * @var MockObject&OutputInterface
      */
     private $output;
     /**
@@ -56,7 +57,7 @@ class ListApiEndpointsUnitTest extends TestCase
         $outputFormatter = $this->createMock(OutputFormatterInterface::class);
         $this->input = $this->createMock(InputInterface::class);
         $this->output = $this->createMock(OutputInterface::class);
-        $this->output->expects($this->any())
+        $this->output->expects(self::any())
             ->method('getFormatter')
             ->willReturn($outputFormatter);
         $this->application = new Application();
@@ -66,21 +67,21 @@ class ListApiEndpointsUnitTest extends TestCase
     /**
      * @test
      */
-    public function checkCommandConfiguration()
+    public function checkCommandConfiguration(): void
     {
         $command = $this->getApiEndpointsMock();
         $options = $command->getDefinition()->getOptions();
-        $this->assertSame('api:list:endpoints', $command->getName());
-        $this->assertSame('List all API endpoints', $command->getDescription());
-        $this->assertCount(3, $options);
+        self::assertSame('api:list:endpoints', $command->getName());
+        self::assertSame('List all API endpoints', $command->getDescription());
+        self::assertCount(3, $options);
     }
 
     /**
      * @test
      */
-    public function missingMagentoInstallThrowsException()
+    public function missingMagentoInstallThrowsException(): void
     {
-        self::expectException(RuntimeException::class);
+        $this->expectException(RuntimeException::class);
 
         $command = $this->getApiEndpointsMock();
         $command->method('detectMagento')
@@ -93,11 +94,11 @@ class ListApiEndpointsUnitTest extends TestCase
     /**
      * @test
      */
-    public function missingOutputFormatParameterThrowsException()
+    public function missingOutputFormatParameterThrowsException(): void
     {
-        self::expectException(InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
 
-        /** @var ListApiEndpoints $command */
+        /** @var MockObject&ListApiEndpoints $command */
         $command = $this->getApiEndpointsMock();
         $command->method('getDefinedServices')
             ->willReturn([]);
@@ -108,13 +109,13 @@ class ListApiEndpointsUnitTest extends TestCase
     /**
      * @test
      */
-    public function withOutputFormatParameterSetTheCommandWillRenderTableStructure()
+    public function withOutputFormatParameterSetTheCommandWillRenderTableStructure(): void
     {
         // since no services are returned, just the table header is rendered
-        $this->output->expects($this->exactly(self::EMPTY_TABLE_OUTPUT_LINES))
+        $this->output->expects(self::exactly(self::EMPTY_TABLE_OUTPUT_LINES))
             ->method('writeln');
 
-        $this->input->expects($this->any())
+        $this->input->expects(self::any())
             ->method('getOption')
             ->willReturnMap([
                 [ListApiEndpoints::OPTION_FILTER_ROUTE, ''],
@@ -122,30 +123,31 @@ class ListApiEndpointsUnitTest extends TestCase
                 [ListApiEndpoints::OPTION_OUTPUT_FORMAT, 'table'],
             ]);
 
-        /** @var ListApiEndpoints $command */
+        /** @var MockObject&ListApiEndpoints $command */
         $command = $this->getApiEndpointsMock();
         $command->method('getDefinedServices')
             ->willReturn([]);
         $command->setApplication($this->application);
         $returnCode = $command->run($this->input, $this->output);
 
-        $this->assertSame(0, $returnCode);
+        self::assertSame(0, $returnCode);
     }
 
     /**
      * @test
      */
-    public function dataIsRenderedInOutput()
+    public function dataIsRenderedInOutput(): void
     {
+        $services = [];
         $services['routes'] = [
             '/route' => [
                 'GET' => ['resources' => '{}']
             ]
         ];
 
-        $this->output = new BufferedOutput();
+        $output = new BufferedOutput();
 
-        $this->input->expects($this->any())
+        $this->input->expects(self::any())
             ->method('getOption')
             ->willReturnMap([
                 [ListApiEndpoints::OPTION_FILTER_ROUTE, ''],
@@ -153,38 +155,39 @@ class ListApiEndpointsUnitTest extends TestCase
                 [ListApiEndpoints::OPTION_OUTPUT_FORMAT, 'table'],
             ]);
 
-        /** @var ListApiEndpoints $command */
+        /** @var MockObject&ListApiEndpoints $command */
         $command = $this->getApiEndpointsMock();
         $command->method('getDefinedServices')
             ->willReturn($services);
         $command->setApplication($this->application);
-        $returnCode = $command->run($this->input, $this->output);
-        $content = $this->output->fetch();
+        $returnCode = $command->run($this->input, $output);
+        $content = $output->fetch();
 
-        $this->assertSame(0, $returnCode);
-        $this->assertStringContainsString('Method', $content);
-        $this->assertStringContainsString('Route', $content);
-        $this->assertStringContainsString('Resources', $content);
-        $this->assertStringContainsString('GET', $content);
-        $this->assertStringContainsString('/route', $content);
-        $this->assertStringContainsString('"{}"', $content);
+        self::assertSame(0, $returnCode);
+        self::assertStringContainsString('Method', $content);
+        self::assertStringContainsString('Route', $content);
+        self::assertStringContainsString('Resources', $content);
+        self::assertStringContainsString('GET', $content);
+        self::assertStringContainsString('/route', $content);
+        self::assertStringContainsString('"{}"', $content);
     }
 
     /**
      * @test
      */
-    public function forEachDefinedRouteTheCommandWillRenderTableRow()
+    public function forEachDefinedRouteTheCommandWillRenderTableRow(): void
     {
+        $services = [];
         $services['routes'] = [
             '/route' => [
                 'GET' => ['resources' => '{}']
             ]
         ];
 
-        $this->output->expects($this->exactly(self::TABLE_OUTPUT_LINES + 1))
+        $this->output->expects(self::exactly(self::TABLE_OUTPUT_LINES + 1))
             ->method('writeln');
 
-        $this->input->expects($this->any())
+        $this->input->expects(self::any())
             ->method('getOption')
             ->willReturnMap([
                 [ListApiEndpoints::OPTION_FILTER_ROUTE, ''],
@@ -192,22 +195,23 @@ class ListApiEndpointsUnitTest extends TestCase
                 [ListApiEndpoints::OPTION_OUTPUT_FORMAT, 'table'],
             ]);
 
-        /** @var ListApiEndpoints $command */
+        /** @var MockObject&ListApiEndpoints $command */
         $command = $this->getApiEndpointsMock();
         $command->method('getDefinedServices')
             ->willReturn($services);
         $command->setApplication($this->application);
         $returnCode = $command->run($this->input, $this->output);
 
-        $this->assertSame(0, $returnCode);
+        self::assertSame(0, $returnCode);
     }
 
     /**
      * @test
      */
-    public function forEachFilteredRouteByMethodTheCommandWillRenderTableRow()
+    public function forEachFilteredRouteByMethodTheCommandWillRenderTableRow(): void
     {
         $filter = 'GET';
+        $services = [];
         $services['routes'] = [
             '/route' => [
                 'GET' => ['resources' => '{}'],
@@ -220,10 +224,10 @@ class ListApiEndpointsUnitTest extends TestCase
             ],
         ];
 
-        $this->output->expects($this->exactly(self::TABLE_OUTPUT_LINES + 2))
+        $this->output->expects(self::exactly(self::TABLE_OUTPUT_LINES + 2))
             ->method('writeln');
 
-        $this->input->expects($this->any())
+        $this->input->expects(self::any())
             ->method('getOption')
             ->willReturnMap([
                 [ListApiEndpoints::OPTION_FILTER_ROUTE, ''],
@@ -231,22 +235,23 @@ class ListApiEndpointsUnitTest extends TestCase
                 [ListApiEndpoints::OPTION_OUTPUT_FORMAT, 'table'],
             ]);
 
-        /** @var ListApiEndpoints $command */
+        /** @var MockObject&ListApiEndpoints $command */
         $command = $this->getApiEndpointsMock();
         $command->method('getDefinedServices')
             ->willReturn($services);
         $command->setApplication($this->application);
         $returnCode = $command->run($this->input, $this->output);
 
-        $this->assertSame(0, $returnCode);
+        self::assertSame(0, $returnCode);
     }
 
     /**
      * @test
      */
-    public function forEachCaseInsensitiveFilteredRouteByMethodTheCommandWillRenderTableRow()
+    public function forEachCaseInsensitiveFilteredRouteByMethodTheCommandWillRenderTableRow(): void
     {
         $filter = 'get';
+        $services = [];
         $services['routes'] = [
             '/route' => [
                 'GET' => ['resources' => '{}'],
@@ -259,10 +264,10 @@ class ListApiEndpointsUnitTest extends TestCase
             ],
         ];
 
-        $this->output->expects($this->exactly(self::TABLE_OUTPUT_LINES + 2))
+        $this->output->expects(self::exactly(self::TABLE_OUTPUT_LINES + 2))
             ->method('writeln');
 
-        $this->input->expects($this->any())
+        $this->input->expects(self::any())
             ->method('getOption')
             ->willReturnMap([
                 [ListApiEndpoints::OPTION_FILTER_ROUTE, ''],
@@ -270,22 +275,23 @@ class ListApiEndpointsUnitTest extends TestCase
                 [ListApiEndpoints::OPTION_OUTPUT_FORMAT, 'table'],
             ]);
 
-        /** @var ListApiEndpoints $command */
+        /** @var MockObject&ListApiEndpoints $command */
         $command = $this->getApiEndpointsMock();
         $command->method('getDefinedServices')
             ->willReturn($services);
         $command->setApplication($this->application);
         $returnCode = $command->run($this->input, $this->output);
 
-        $this->assertSame(0, $returnCode);
+        self::assertSame(0, $returnCode);
     }
 
     /**
      * @test
      */
-    public function forMultipleFilteredRoutesByMethodTheCommandWillRenderTableRow()
+    public function forMultipleFilteredRoutesByMethodTheCommandWillRenderTableRow(): void
     {
         $filter = 'GET, POST';
+        $services = [];
         $services['routes'] = [
             '/route' => [
                 'GET' => ['resources' => '{}'],
@@ -298,10 +304,10 @@ class ListApiEndpointsUnitTest extends TestCase
             ],
         ];
 
-        $this->output->expects($this->exactly(self::TABLE_OUTPUT_LINES + 3))
+        $this->output->expects(self::exactly(self::TABLE_OUTPUT_LINES + 3))
             ->method('writeln');
 
-        $this->input->expects($this->any())
+        $this->input->expects(self::any())
             ->method('getOption')
             ->willReturnMap([
                 [ListApiEndpoints::OPTION_FILTER_ROUTE, ''],
@@ -309,23 +315,24 @@ class ListApiEndpointsUnitTest extends TestCase
                 [ListApiEndpoints::OPTION_OUTPUT_FORMAT, 'table'],
             ]);
 
-        /** @var ListApiEndpoints $command */
+        /** @var MockObject&ListApiEndpoints $command */
         $command = $this->getApiEndpointsMock();
         $command->method('getDefinedServices')
             ->willReturn($services);
         $command->setApplication($this->application);
         $returnCode = $command->run($this->input, $this->output);
 
-        $this->assertSame(0, $returnCode);
+        self::assertSame(0, $returnCode);
     }
 
     /**
      * @test
      */
-    public function forMultipleFilteredRoutesByRouteTheCommandWillRenderTableRow()
+    public function forMultipleFilteredRoutesByRouteTheCommandWillRenderTableRow(): void
     {
         $filter = '';
         $route = 'other';
+        $services = [];
         $services['routes'] = [
             '/route' => [
                 'GET' => ['resources' => '{}'],
@@ -338,10 +345,10 @@ class ListApiEndpointsUnitTest extends TestCase
             ],
         ];
 
-        $this->output->expects($this->exactly(self::TABLE_OUTPUT_LINES + 3))
+        $this->output->expects(self::exactly(self::TABLE_OUTPUT_LINES + 3))
             ->method('writeln');
 
-        $this->input->expects($this->any())
+        $this->input->expects(self::any())
             ->method('getOption')
             ->willReturnMap([
                 [ListApiEndpoints::OPTION_FILTER_ROUTE, $route],
@@ -349,23 +356,24 @@ class ListApiEndpointsUnitTest extends TestCase
                 [ListApiEndpoints::OPTION_OUTPUT_FORMAT, 'table'],
             ]);
 
-        /** @var ListApiEndpoints $command */
+        /** @var MockObject&ListApiEndpoints $command */
         $command = $this->getApiEndpointsMock();
         $command->method('getDefinedServices')
             ->willReturn($services);
         $command->setApplication($this->application);
         $returnCode = $command->run($this->input, $this->output);
 
-        $this->assertSame(0, $returnCode);
+        self::assertSame(0, $returnCode);
     }
 
     /**
      * @test
      */
-    public function forMultipleFilteredRoutesByMethodAndRouteTheCommandWillRenderTableRow()
+    public function forMultipleFilteredRoutesByMethodAndRouteTheCommandWillRenderTableRow(): void
     {
         $filter = 'GET, POST';
         $route = 'other';
+        $services = [];
         $services['routes'] = [
             '/route' => [
                 'GET' => ['resources' => '{}'],
@@ -378,10 +386,10 @@ class ListApiEndpointsUnitTest extends TestCase
             ],
         ];
 
-        $this->output->expects($this->exactly(self::TABLE_OUTPUT_LINES + 2))
+        $this->output->expects(self::exactly(self::TABLE_OUTPUT_LINES + 2))
             ->method('writeln');
 
-        $this->input->expects($this->any())
+        $this->input->expects(self::any())
             ->method('getOption')
             ->willReturnMap([
                 [ListApiEndpoints::OPTION_FILTER_ROUTE, $route],
@@ -389,21 +397,21 @@ class ListApiEndpointsUnitTest extends TestCase
                 [ListApiEndpoints::OPTION_OUTPUT_FORMAT, 'table'],
             ]);
 
-        /** @var ListApiEndpoints $command */
+        /** @var MockObject&ListApiEndpoints $command */
         $command = $this->getApiEndpointsMock();
         $command->method('getDefinedServices')
             ->willReturn($services);
         $command->setApplication($this->application);
         $returnCode = $command->run($this->input, $this->output);
 
-        $this->assertSame(0, $returnCode);
+        self::assertSame(0, $returnCode);
     }
 
     /**
      * Helper method to configure a mocked version of
-     * {@link \BitExpert\Magento\LisaApiEndpoints\Command\ListApiEndpoints}.
+     * {@link \BitExpert\Magento\ListApiEndpoints\Command\ListApiEndpoints}.
      *
-     * @return ListApiEndpoints|\PHPUnit\Framework\MockObject\MockObject
+     * @return \PHPUnit\Framework\MockObject\MockObject&ListApiEndpoints
      */
     protected function getApiEndpointsMock()
     {
