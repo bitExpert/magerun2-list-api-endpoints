@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f13c280fc94d3741895c93ff1b5f5ee0",
+    "content-hash": "6519a9e36c29e59ee8d4b1a9e01f156d",
     "packages": [
         {
             "name": "colinmollenhour/credis",
@@ -5587,7 +5587,7 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.22.0",
+            "version": "v1.22.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
@@ -5646,7 +5646,7 @@
                 "portable"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.22.0"
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.22.1"
             },
             "funding": [
                 {
@@ -5753,16 +5753,16 @@
         },
         {
             "name": "symfony/polyfill-intl-normalizer",
-            "version": "v1.22.0",
+            "version": "v1.22.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-normalizer.git",
-                "reference": "6e971c891537eb617a00bb07a43d182a6915faba"
+                "reference": "43a0283138253ed1d48d352ab6d0bdb3f809f248"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/6e971c891537eb617a00bb07a43d182a6915faba",
-                "reference": "6e971c891537eb617a00bb07a43d182a6915faba",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/43a0283138253ed1d48d352ab6d0bdb3f809f248",
+                "reference": "43a0283138253ed1d48d352ab6d0bdb3f809f248",
                 "shasum": ""
             },
             "require": {
@@ -5817,7 +5817,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.22.0"
+                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.22.1"
             },
             "funding": [
                 {
@@ -5833,20 +5833,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-07T17:09:11+00:00"
+            "time": "2021-01-22T09:19:47+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.22.0",
+            "version": "v1.22.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "f377a3dd1fde44d37b9831d68dc8dea3ffd28e13"
+                "reference": "5232de97ee3b75b0360528dae24e73db49566ab1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/f377a3dd1fde44d37b9831d68dc8dea3ffd28e13",
-                "reference": "f377a3dd1fde44d37b9831d68dc8dea3ffd28e13",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/5232de97ee3b75b0360528dae24e73db49566ab1",
+                "reference": "5232de97ee3b75b0360528dae24e73db49566ab1",
                 "shasum": ""
             },
             "require": {
@@ -5897,7 +5897,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.22.0"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.22.1"
             },
             "funding": [
                 {
@@ -5913,7 +5913,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-07T16:49:33+00:00"
+            "time": "2021-01-22T09:19:47+00:00"
         },
         {
             "name": "symfony/polyfill-php72",
@@ -5993,7 +5993,7 @@
         },
         {
             "name": "symfony/polyfill-php73",
-            "version": "v1.22.0",
+            "version": "v1.22.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php73.git",
@@ -6052,7 +6052,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php73/tree/v1.22.0"
+                "source": "https://github.com/symfony/polyfill-php73/tree/v1.22.1"
             },
             "funding": [
                 {
@@ -6072,7 +6072,7 @@
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.22.0",
+            "version": "v1.22.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
@@ -6135,7 +6135,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.22.0"
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.22.1"
             },
             "funding": [
                 {
@@ -6514,16 +6514,16 @@
         },
         {
             "name": "bitexpert/captainhook-infection",
-            "version": "v0.3.0",
+            "version": "v0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bitExpert/captainhook-infection.git",
-                "reference": "3215482c8c6ced54236714a4b62821089788e8e9"
+                "reference": "dee08785259dd85bd3f8403339eb3a1dd67202c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bitExpert/captainhook-infection/zipball/3215482c8c6ced54236714a4b62821089788e8e9",
-                "reference": "3215482c8c6ced54236714a4b62821089788e8e9",
+                "url": "https://api.github.com/repos/bitExpert/captainhook-infection/zipball/dee08785259dd85bd3f8403339eb3a1dd67202c1",
+                "reference": "dee08785259dd85bd3f8403339eb3a1dd67202c1",
                 "shasum": ""
             },
             "require": {
@@ -6533,7 +6533,9 @@
             "require-dev": {
                 "captainhook/plugin-composer": "^5.2",
                 "infection/infection": "^0.21.0",
+                "phly/keep-a-changelog": "^2.11",
                 "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan-strict-rules": "^0.12.9",
                 "phpunit/phpunit": "^9.5",
                 "roave/security-advisories": "dev-latest",
                 "squizlabs/php_codesniffer": "^3.5"
@@ -6556,7 +6558,11 @@
                 }
             ],
             "description": "Captain Hook Plugin to run InfectionPHP only against the files of the current changeset",
-            "time": "2021-02-05T19:09:43+00:00"
+            "support": {
+                "issues": "https://github.com/bitExpert/captainhook-infection/issues",
+                "source": "https://github.com/bitExpert/captainhook-infection/tree/v0.4.0"
+            },
+            "time": "2021-02-20T08:59:39+00:00"
         },
         {
             "name": "bitexpert/phpstan-magento",
@@ -6687,6 +6693,10 @@
                 "pre-push",
                 "prepare-commit-msg"
             ],
+            "support": {
+                "issues": "https://github.com/captainhookphp/captainhook/issues",
+                "source": "https://github.com/captainhookphp/captainhook/tree/5.4.4"
+            },
             "funding": [
                 {
                     "url": "https://github.com/sponsors/sebastianfeldmann",
@@ -9948,6 +9958,10 @@
                 "file system",
                 "path"
             ],
+            "support": {
+                "issues": "https://github.com/sebastianfeldmann/camino/issues",
+                "source": "https://github.com/sebastianfeldmann/camino/tree/0.9.4"
+            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianfeldmann",
@@ -10002,6 +10016,10 @@
             "keywords": [
                 "cli"
             ],
+            "support": {
+                "issues": "https://github.com/sebastianfeldmann/cli/issues",
+                "source": "https://github.com/sebastianfeldmann/cli/tree/3.3.1"
+            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianfeldmann",
@@ -10012,16 +10030,16 @@
         },
         {
             "name": "sebastianfeldmann/git",
-            "version": "3.4.1",
+            "version": "3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianfeldmann/git.git",
-                "reference": "a1855895dbc4056cb3f8d14645487f10a393c029"
+                "reference": "8bdbc4ec14970942ace6b73a1a4f7df1caaefdcd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianfeldmann/git/zipball/a1855895dbc4056cb3f8d14645487f10a393c029",
-                "reference": "a1855895dbc4056cb3f8d14645487f10a393c029",
+                "url": "https://api.github.com/repos/sebastianfeldmann/git/zipball/8bdbc4ec14970942ace6b73a1a4f7df1caaefdcd",
+                "reference": "8bdbc4ec14970942ace6b73a1a4f7df1caaefdcd",
                 "shasum": ""
             },
             "require": {
@@ -10056,13 +10074,17 @@
             "keywords": [
                 "git"
             ],
+            "support": {
+                "issues": "https://github.com/sebastianfeldmann/git/issues",
+                "source": "https://github.com/sebastianfeldmann/git/tree/3.5.0"
+            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianfeldmann",
                     "type": "github"
                 }
             ],
-            "time": "2020-12-08T09:38:31+00:00"
+            "time": "2021-02-18T11:53:27+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
