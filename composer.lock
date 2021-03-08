@@ -4978,27 +4978,22 @@
         },
         {
             "name": "psr/container",
-            "version": "1.0.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/container.git",
-                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f"
+                "reference": "8622567409010282b7aeebe4bb841fe98b58dcaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/container/zipball/b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
-                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/8622567409010282b7aeebe4bb841fe98b58dcaf",
+                "reference": "8622567409010282b7aeebe4bb841fe98b58dcaf",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=7.2.0"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Psr\\Container\\": "src/"
@@ -5011,7 +5006,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
+                    "homepage": "https://www.php-fig.org/"
                 }
             ],
             "description": "Common Container Interface (PHP FIG PSR-11)",
@@ -5025,9 +5020,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-fig/container/issues",
-                "source": "https://github.com/php-fig/container/tree/master"
+                "source": "https://github.com/php-fig/container/tree/1.1.1"
             },
-            "time": "2017-02-14T16:28:37+00:00"
+            "time": "2021-03-05T17:36:06+00:00"
         },
         {
             "name": "psr/http-message",
@@ -5375,16 +5370,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v4.4.19",
+            "version": "v4.4.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "24026c44fc37099fa145707fecd43672831b837a"
+                "reference": "c98349bda966c70d6c08b4cd8658377c94166492"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/24026c44fc37099fa145707fecd43672831b837a",
-                "reference": "24026c44fc37099fa145707fecd43672831b837a",
+                "url": "https://api.github.com/repos/symfony/console/zipball/c98349bda966c70d6c08b4cd8658377c94166492",
+                "reference": "c98349bda966c70d6c08b4cd8658377c94166492",
                 "shasum": ""
             },
             "require": {
@@ -5444,7 +5439,7 @@
             "description": "Eases the creation of beautiful and testable command line interfaces",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/console/tree/v4.4.19"
+                "source": "https://github.com/symfony/console/tree/v4.4.20"
             },
             "funding": [
                 {
@@ -5460,7 +5455,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-27T09:09:26+00:00"
+            "time": "2021-02-22T18:44:15+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -6155,7 +6150,7 @@
         },
         {
             "name": "symfony/process",
-            "version": "v4.4.19",
+            "version": "v4.4.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -6196,7 +6191,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/process/tree/v4.4.19"
+                "source": "https://github.com/symfony/process/tree/v4.4.20"
             },
             "funding": [
                 {
@@ -6625,16 +6620,16 @@
         },
         {
             "name": "captainhook/captainhook",
-            "version": "5.4.4",
+            "version": "5.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/captainhookphp/captainhook.git",
-                "reference": "c91b567364f20bc7c3d2db064cd59b4c4c731983"
+                "reference": "ece43fa22ff8b2cfae0e845c58c1367c547ff181"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/captainhookphp/captainhook/zipball/c91b567364f20bc7c3d2db064cd59b4c4c731983",
-                "reference": "c91b567364f20bc7c3d2db064cd59b4c4c731983",
+                "url": "https://api.github.com/repos/captainhookphp/captainhook/zipball/ece43fa22ff8b2cfae0e845c58c1367c547ff181",
+                "reference": "ece43fa22ff8b2cfae0e845c58c1367c547ff181",
                 "shasum": ""
             },
             "require": {
@@ -6695,7 +6690,7 @@
             ],
             "support": {
                 "issues": "https://github.com/captainhookphp/captainhook/issues",
-                "source": "https://github.com/captainhookphp/captainhook/tree/5.4.4"
+                "source": "https://github.com/captainhookphp/captainhook/tree/5.4.5"
             },
             "funding": [
                 {
@@ -6703,20 +6698,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-07T19:38:34+00:00"
+            "time": "2021-03-05T15:04:36+00:00"
         },
         {
             "name": "captainhook/plugin-composer",
-            "version": "5.2.3",
+            "version": "5.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/captainhookphp/plugin-composer.git",
-                "reference": "7c0c809011c24c1517d3896c5a7318268cea70ee"
+                "reference": "835cb6619bc209a1f55a2d51c6b112328968b405"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/captainhookphp/plugin-composer/zipball/7c0c809011c24c1517d3896c5a7318268cea70ee",
-                "reference": "7c0c809011c24c1517d3896c5a7318268cea70ee",
+                "url": "https://api.github.com/repos/captainhookphp/plugin-composer/zipball/835cb6619bc209a1f55a2d51c6b112328968b405",
+                "reference": "835cb6619bc209a1f55a2d51c6b112328968b405",
                 "shasum": ""
             },
             "require": {
@@ -6754,7 +6749,11 @@
                 }
             ],
             "description": "Composer-Plugin handling your git-hooks",
-            "time": "2020-12-07T19:27:49+00:00"
+            "support": {
+                "issues": "https://github.com/captainhookphp/plugin-composer/issues",
+                "source": "https://github.com/captainhookphp/plugin-composer/tree/5.2.4"
+            },
+            "time": "2021-03-05T09:21:40+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
