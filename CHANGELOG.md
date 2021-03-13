@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 2.2.0
+
+### Added
+
+- [#52](https://github.com/bitExpert/magerun2-list-api-endpoints/pull/52) Bump Bump phpstan/phpstan from 0.12.78 to 0.12.81
+- [#51](https://github.com/bitExpert/magerun2-list-api-endpoints/pull/51) Bump Bump captainhook/plugin-composer from 5.2.3 to 5.2.4
+- [#50](https://github.com/bitExpert/magerun2-list-api-endpoints/pull/50) Bump captainhook/captainhook from 5.4.4 to 5.4.5
+- [#49](https://github.com/bitExpert/magerun2-list-api-endpoints/pull/49) Bump infection/infection from 0.21.2 to 0.21.4
+- [#42](https://github.com/bitExpert/magerun2-list-api-endpoints/pull/32) Bump bitexpert/captainhook-infection from 0.3.0 to 0.4.0
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 2.1.0
 
 ### Added
