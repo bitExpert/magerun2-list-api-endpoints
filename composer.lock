@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ef41da7378247afcb0bf92aa12b5a3a",
+    "content-hash": "3a289357cd09585cfc915554551b4180",
     "packages": [
         {
             "name": "colinmollenhour/credis",
@@ -6784,6 +6784,51 @@
                 }
             ],
             "time": "2021-03-31T11:40:44+00:00"
+        },
+        {
+            "name": "madewithlove/license-checker",
+            "version": "v0.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/madewithlove/license-checker-php.git",
+                "reference": "53837b3f53a207d5b0ef7c86ef3668f2f5005a05"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/madewithlove/license-checker-php/zipball/53837b3f53a207d5b0ef7c86ef3668f2f5005a05",
+                "reference": "53837b3f53a207d5b0ef7c86ef3668f2f5005a05",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/console": "^4.0 || ^5.0",
+                "symfony/process": "^4.0 || ^5.0",
+                "symfony/yaml": "^4.0 || ^5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5 || ^9.0",
+                "vimeo/psalm": "^3.9"
+            },
+            "bin": [
+                "bin/license-checker"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LicenseChecker\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "madewithlove",
+                    "email": "hello@madewithlove.com"
+                }
+            ],
+            "description": "CLI tool to verify allowed licenses for composer dependencies",
+            "time": "2020-06-11T11:00:51+00:00"
         },
         {
             "name": "myclabs/deep-copy",

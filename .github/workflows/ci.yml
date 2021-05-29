@@ -40,6 +40,9 @@ jobs:
           ln -s $(pwd) ~/.n98-magerun2/modules/magerun2-list-api-endpoints
           php n98-magerun2-latest.phar help api:list:endpoints
 
+      - name: Composer license check
+        run: composer check-license
+
       - name: Codesniffer
         run: composer cs-check
 
