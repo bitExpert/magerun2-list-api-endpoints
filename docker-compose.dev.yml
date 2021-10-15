@@ -1,22 +1,41 @@
 # Mark Shust's Docker Configuration for Magento
 # (https://github.com/markshust/docker-magento)
 #
-# Version 34.2.0
+# Version 39.1.0
 
 version: "3"
 
 services:
   app:
     volumes: &appvolumes
-      - ~/.composer:/var/www/.composer
-      - ~/.composer/auth.json:/var/www/html/auth.json
-      - ./:/var/www/.n98-magerun2/modules/magerun2-list-api-endpoints/:cached
+      ## Host mounts with performance penalty, only put what is necessary here
+      - ./src/app/code:/var/www/html/app/code:cached
+      - ./src/app/design:/var/www/html/app/design:cached
+      - ./src/app/etc:/var/www/html/app/etc:cached
+      - ./src/composer.json:/var/www/html/composer.json:cached
+      - ./src/composer.lock:/var/www/html/composer.lock:cached
+      - ./src/nginx.conf.sample:/var/www/html/nginx.conf:cached
+      #- ./src/auth.json:/var/www/html/auth.json:cached
+      #- ./src/m2-hotfixes:/var/www/html/m2-hotfixes:cached
+      #- ./src/patches:/var/www/html/patches:cached
+      #- ./src/var/log:/var/www/html/var/log:cached
+      #- ./src/var/report:/var/www/html/var/report:cached
+      ## To sync your SSH to the container, uncomment the following line:
+      #- ~/.ssh/id_rsa:/var/www/.ssh/id_rsa:cached
+      ## Linux only: remove the above lines (except nginx.conf line) and mount the entire src directory with:
+      #- ./src:/var/www/html:cached
 
   phpfpm:
     volumes: *appvolumes
+    ## Linux users, see https://github.com/markshust/docker-magento#linux for updates needed below
+    #extra_hosts:
+    #  - "host.docker.internal:IP"
 
-  mailhog:
-    image: mailhog/mailhog
+  mailcatcher:
+    image: sj26/mailcatcher
     ports:
-      - "1025"
-      - "8025:8025"
+      - "1080:1080"
+
+  ## Disabling cron by default as it uses higher CPU, enable if needed
+  #cron:
+  #  volumes: *appvolumes
