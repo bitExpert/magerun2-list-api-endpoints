@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b02c8430af9c7da0a8b6e400144422a5",
+    "content-hash": "2ac120be6f74347d5968fcec4c4817e4",
     "packages": [
         {
             "name": "colinmollenhour/credis",
@@ -748,31 +748,30 @@
         },
         {
             "name": "laminas/laminas-captcha",
-            "version": "2.10.0",
+            "version": "2.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-captcha.git",
-                "reference": "9a0134e434cd792934ecca42cb66f316be7bba50"
+                "reference": "6b0b98d388b713119cbb5788ea0b90cd6e63513a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-captcha/zipball/9a0134e434cd792934ecca42cb66f316be7bba50",
-                "reference": "9a0134e434cd792934ecca42cb66f316be7bba50",
+                "url": "https://api.github.com/repos/laminas/laminas-captcha/zipball/6b0b98d388b713119cbb5788ea0b90cd6e63513a",
+                "reference": "6b0b98d388b713119cbb5788ea0b90cd6e63513a",
                 "shasum": ""
             },
             "require": {
                 "laminas/laminas-math": "^2.7 || ^3.0",
-                "laminas/laminas-stdlib": "^3.3",
-                "laminas/laminas-zendframework-bridge": "^1.1",
-                "php": "^7.3 || ~8.0.0"
+                "laminas/laminas-stdlib": "^3.6",
+                "php": "^7.3 || ~8.0.0 || ~8.1.0"
             },
-            "replace": {
-                "zendframework/zend-captcha": "^2.9.0"
+            "conflict": {
+                "zendframework/zend-captcha": "*"
             },
             "require-dev": {
                 "laminas/laminas-coding-standard": "~2.1.4",
                 "laminas/laminas-recaptcha": "^3.0",
-                "laminas/laminas-session": "^2.10",
+                "laminas/laminas-session": "^2.12",
                 "laminas/laminas-text": "^2.8",
                 "laminas/laminas-validator": "^2.14",
                 "phpunit/phpunit": "^9.4.3",
@@ -808,7 +807,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2021-03-17T16:42:11+00:00"
+            "time": "2021-10-01T15:30:12+00:00"
         },
         {
             "name": "laminas/laminas-code",
@@ -985,37 +984,35 @@
         },
         {
             "name": "laminas/laminas-db",
-            "version": "2.12.0",
+            "version": "2.13.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-db.git",
-                "reference": "80cbba4e749f9eb7d8036172acb9ad41e8b6923f"
+                "reference": "cdabb4bfa669c2c0edb0cb4e014c15b41afd3fb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-db/zipball/80cbba4e749f9eb7d8036172acb9ad41e8b6923f",
-                "reference": "80cbba4e749f9eb7d8036172acb9ad41e8b6923f",
+                "url": "https://api.github.com/repos/laminas/laminas-db/zipball/cdabb4bfa669c2c0edb0cb4e014c15b41afd3fb1",
+                "reference": "cdabb4bfa669c2c0edb0cb4e014c15b41afd3fb1",
                 "shasum": ""
             },
             "require": {
-                "laminas/laminas-stdlib": "^3.3",
-                "laminas/laminas-zendframework-bridge": "^1.0",
-                "php": "^7.3 || ~8.0.0"
+                "laminas/laminas-stdlib": "^3.6",
+                "php": "^7.3 || ~8.0.0 || ~8.1.0"
             },
-            "replace": {
-                "zendframework/zend-db": "^2.11.0"
+            "conflict": {
+                "zendframework/zend-db": "*"
             },
             "require-dev": {
-                "laminas/laminas-coding-standard": "~1.0.0",
-                "laminas/laminas-eventmanager": "^3.3",
-                "laminas/laminas-hydrator": "^3.2 || ^4.0",
-                "laminas/laminas-servicemanager": "^3.3",
-                "phpspec/prophecy-phpunit": "^2.0",
-                "phpunit/phpunit": "^9.3"
+                "laminas/laminas-coding-standard": "~2.2.1",
+                "laminas/laminas-eventmanager": "^3.4",
+                "laminas/laminas-hydrator": "^3.2 || ^4.3",
+                "laminas/laminas-servicemanager": "^3.7",
+                "phpunit/phpunit": "^9.5.5"
             },
             "suggest": {
                 "laminas/laminas-eventmanager": "Laminas\\EventManager component",
-                "laminas/laminas-hydrator": "(^3.2 || ^4.0) Laminas\\Hydrator component for using HydratingResultSets",
+                "laminas/laminas-hydrator": "(^3.2 || ^4.3) Laminas\\Hydrator component for using HydratingResultSets",
                 "laminas/laminas-servicemanager": "Laminas\\ServiceManager component"
             },
             "type": "library",
@@ -1046,7 +1043,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2021-02-22T22:27:56+00:00"
+            "time": "2021-09-21T18:59:44+00:00"
         },
         {
             "name": "laminas/laminas-diactoros",
@@ -1180,31 +1177,31 @@
         },
         {
             "name": "laminas/laminas-eventmanager",
-            "version": "3.3.1",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-eventmanager.git",
-                "reference": "966c859b67867b179fde1eff0cd38df51472ce4a"
+                "reference": "a93fd278c97b2d41ebbce5ba048a24e3e6f580ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-eventmanager/zipball/966c859b67867b179fde1eff0cd38df51472ce4a",
-                "reference": "966c859b67867b179fde1eff0cd38df51472ce4a",
+                "url": "https://api.github.com/repos/laminas/laminas-eventmanager/zipball/a93fd278c97b2d41ebbce5ba048a24e3e6f580ba",
+                "reference": "a93fd278c97b2d41ebbce5ba048a24e3e6f580ba",
                 "shasum": ""
             },
             "require": {
-                "laminas/laminas-zendframework-bridge": "^1.0",
-                "php": "^7.3 || ^8.0"
+                "php": "^7.3 || ~8.0.0 || ~8.1.0"
             },
-            "replace": {
-                "zendframework/zend-eventmanager": "^3.2.1"
+            "conflict": {
+                "zendframework/zend-eventmanager": "*"
             },
             "require-dev": {
                 "container-interop/container-interop": "^1.1",
-                "laminas/laminas-coding-standard": "~1.0.0",
-                "laminas/laminas-stdlib": "^2.7.3 || ^3.0",
-                "phpbench/phpbench": "^0.17.1",
-                "phpunit/phpunit": "^8.5.8"
+                "laminas/laminas-coding-standard": "~2.2.1",
+                "laminas/laminas-stdlib": "^3.6",
+                "phpbench/phpbench": "^1.1",
+                "phpspec/prophecy-phpunit": "^2.0",
+                "phpunit/phpunit": "^9.5.5"
             },
             "suggest": {
                 "container-interop/container-interop": "^1.1, to use the lazy listeners feature",
@@ -1234,7 +1231,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2021-03-08T15:24:29+00:00"
+            "time": "2021-09-07T22:35:32+00:00"
         },
         {
             "name": "laminas/laminas-filter",
@@ -2042,39 +2039,39 @@
         },
         {
             "name": "laminas/laminas-session",
-            "version": "2.10.0",
+            "version": "2.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-session.git",
-                "reference": "921e6a9f807ee243a9a4f8a8a297929d0c2b50cd"
+                "reference": "fc538bba5196e3b5937ae7db3c713fc7c0829881"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-session/zipball/921e6a9f807ee243a9a4f8a8a297929d0c2b50cd",
-                "reference": "921e6a9f807ee243a9a4f8a8a297929d0c2b50cd",
+                "url": "https://api.github.com/repos/laminas/laminas-session/zipball/fc538bba5196e3b5937ae7db3c713fc7c0829881",
+                "reference": "fc538bba5196e3b5937ae7db3c713fc7c0829881",
                 "shasum": ""
             },
             "require": {
-                "laminas/laminas-eventmanager": "^3.0",
-                "laminas/laminas-stdlib": "^3.2.1",
-                "laminas/laminas-zendframework-bridge": "^1.0",
-                "php": "^7.3 || ~8.0.0"
+                "laminas/laminas-eventmanager": "^3.4",
+                "laminas/laminas-stdlib": "^3.6",
+                "php": "^7.3 || ~8.0.0 || ~8.1.0"
             },
-            "replace": {
-                "zendframework/zend-session": "^2.9.1"
+            "conflict": {
+                "zendframework/zend-session": "*"
             },
             "require-dev": {
                 "container-interop/container-interop": "^1.1",
-                "laminas/laminas-cache": "^2.6.1",
-                "laminas/laminas-coding-standard": "~1.0.0",
-                "laminas/laminas-db": "^2.7",
-                "laminas/laminas-http": "^2.5.4",
-                "laminas/laminas-servicemanager": "^3.0.3",
-                "laminas/laminas-validator": "^2.6",
-                "mongodb/mongodb": "^1.0.1",
+                "laminas/laminas-cache": "3.0.x-dev",
+                "laminas/laminas-cache-storage-adapter-memory": "2.0.x-dev",
+                "laminas/laminas-coding-standard": "~2.2.1",
+                "laminas/laminas-db": "^2.13.4",
+                "laminas/laminas-http": "^2.15",
+                "laminas/laminas-servicemanager": "^3.7",
+                "laminas/laminas-validator": "^2.15",
+                "mongodb/mongodb": "v1.9.x-dev",
                 "php-mock/php-mock-phpunit": "^1.1.2 || ^2.0",
                 "phpspec/prophecy-phpunit": "^2.0",
-                "phpunit/phpunit": "^9.3"
+                "phpunit/phpunit": "^9.5.9"
             },
             "suggest": {
                 "laminas/laminas-cache": "Laminas\\Cache component",
@@ -2112,33 +2109,34 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2020-10-31T15:33:31+00:00"
+            "time": "2021-09-21T19:25:14+00:00"
         },
         {
             "name": "laminas/laminas-stdlib",
-            "version": "3.3.1",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-stdlib.git",
-                "reference": "d81c7ffe602ed0e6ecb18691019111c0f4bf1efe"
+                "reference": "c53d8537f108fac3fae652677a19735db730ba46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-stdlib/zipball/d81c7ffe602ed0e6ecb18691019111c0f4bf1efe",
-                "reference": "d81c7ffe602ed0e6ecb18691019111c0f4bf1efe",
+                "url": "https://api.github.com/repos/laminas/laminas-stdlib/zipball/c53d8537f108fac3fae652677a19735db730ba46",
+                "reference": "c53d8537f108fac3fae652677a19735db730ba46",
                 "shasum": ""
             },
             "require": {
-                "laminas/laminas-zendframework-bridge": "^1.0",
-                "php": "^7.3 || ^8.0"
+                "php": "^7.3 || ~8.0.0 || ~8.1.0"
             },
-            "replace": {
-                "zendframework/zend-stdlib": "^3.2.1"
+            "conflict": {
+                "zendframework/zend-stdlib": "*"
             },
             "require-dev": {
-                "laminas/laminas-coding-standard": "~1.0.0",
+                "laminas/laminas-coding-standard": "~2.3.0",
                 "phpbench/phpbench": "^0.17.1",
-                "phpunit/phpunit": "~9.3.7"
+                "phpunit/phpunit": "~9.3.7",
+                "psalm/plugin-phpunit": "^0.16.0",
+                "vimeo/psalm": "^4.7"
             },
             "type": "library",
             "autoload": {
@@ -2162,7 +2160,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2020-11-19T20:18:59+00:00"
+            "time": "2021-09-02T16:11:32+00:00"
         },
         {
             "name": "laminas/laminas-uri",
@@ -2301,23 +2299,23 @@
         },
         {
             "name": "laminas/laminas-zendframework-bridge",
-            "version": "1.2.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-zendframework-bridge.git",
-                "reference": "6cccbddfcfc742eb02158d6137ca5687d92cee32"
+                "reference": "bf180a382393e7db5c1e8d0f2ec0c4af9c724baf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-zendframework-bridge/zipball/6cccbddfcfc742eb02158d6137ca5687d92cee32",
-                "reference": "6cccbddfcfc742eb02158d6137ca5687d92cee32",
+                "url": "https://api.github.com/repos/laminas/laminas-zendframework-bridge/zipball/bf180a382393e7db5c1e8d0f2ec0c4af9c724baf",
+                "reference": "bf180a382393e7db5c1e8d0f2ec0c4af9c724baf",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.3 || ^8.0"
+                "php": "^7.3 || ~8.0.0 || ~8.1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.7 || ^6.5 || ^7.5 || ^8.1 || ^9.3",
+                "phpunit/phpunit": "^9.3",
                 "psalm/plugin-phpunit": "^0.15.1",
                 "squizlabs/php_codesniffer": "^3.5",
                 "vimeo/psalm": "^4.6"
@@ -2353,7 +2351,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2021-02-25T21:54:58+00:00"
+            "time": "2021-09-03T17:53:30+00:00"
         },
         {
             "name": "magento/framework",
@@ -2443,10 +2441,10 @@
         },
         {
             "name": "magento/framework-message-queue",
-            "version": "100.4.2",
+            "version": "100.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/framework-message-queue/magento-framework-message-queue-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/framework-message-queue/magento-framework-message-queue-100.4.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -2470,10 +2468,10 @@
         },
         {
             "name": "magento/module-asynchronous-operations",
-            "version": "100.4.2",
+            "version": "100.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-asynchronous-operations/magento-module-asynchronous-operations-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-asynchronous-operations/magento-module-asynchronous-operations-100.4.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -2506,10 +2504,10 @@
         },
         {
             "name": "magento/module-authorization",
-            "version": "100.4.2",
+            "version": "100.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-authorization/magento-module-authorization-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-authorization/magento-module-authorization-100.4.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -2534,10 +2532,10 @@
         },
         {
             "name": "magento/module-backend",
-            "version": "102.0.2",
+            "version": "102.0.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-backend/magento-module-backend-102.0.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-backend/magento-module-backend-102.0.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -2582,10 +2580,10 @@
         },
         {
             "name": "magento/module-backup",
-            "version": "100.4.2",
+            "version": "100.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-backup/magento-module-backup-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-backup/magento-module-backup-100.4.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -2612,10 +2610,10 @@
         },
         {
             "name": "magento/module-bundle",
-            "version": "101.0.2",
+            "version": "101.0.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-bundle/magento-module-bundle-101.0.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-bundle/magento-module-bundle-101.0.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -2659,20 +2657,21 @@
         },
         {
             "name": "magento/module-captcha",
-            "version": "100.4.2",
+            "version": "100.4.3-p1",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-captcha/magento-module-captcha-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-captcha/magento-module-captcha-100.4.3-p1.zip"
             },
             "require": {
-                "laminas/laminas-captcha": "^2.7.1",
+                "laminas/laminas-captcha": "^2.10",
                 "laminas/laminas-db": "^2.8.2",
-                "laminas/laminas-session": "^2.7.3",
+                "laminas/laminas-session": "^2.10",
                 "magento/framework": "103.0.*",
                 "magento/module-authorization": "100.4.*",
                 "magento/module-backend": "102.0.*",
                 "magento/module-checkout": "100.4.*",
                 "magento/module-customer": "103.0.*",
+                "magento/module-sales": "103.0.*",
                 "magento/module-store": "101.1.*",
                 "php": "~7.3.0||~7.4.0"
             },
@@ -2694,10 +2693,10 @@
         },
         {
             "name": "magento/module-catalog",
-            "version": "104.0.2-p1",
+            "version": "104.0.3-p1",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-catalog/magento-module-catalog-104.0.2-p1.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-catalog/magento-module-catalog-104.0.3-p1.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -2751,10 +2750,10 @@
         },
         {
             "name": "magento/module-catalog-import-export",
-            "version": "101.1.2",
+            "version": "101.1.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-catalog-import-export/magento-module-catalog-import-export-101.1.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-catalog-import-export/magento-module-catalog-import-export-101.1.3.zip"
             },
             "require": {
                 "ext-ctype": "*",
@@ -2789,10 +2788,10 @@
         },
         {
             "name": "magento/module-catalog-inventory",
-            "version": "100.4.2",
+            "version": "100.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-catalog-inventory/magento-module-catalog-inventory-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-catalog-inventory/magento-module-catalog-inventory-100.4.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -2823,10 +2822,10 @@
         },
         {
             "name": "magento/module-catalog-rule",
-            "version": "101.2.2",
+            "version": "101.2.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-catalog-rule/magento-module-catalog-rule-101.2.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-catalog-rule/magento-module-catalog-rule-101.2.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -2861,10 +2860,10 @@
         },
         {
             "name": "magento/module-catalog-url-rewrite",
-            "version": "100.4.2",
+            "version": "100.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-catalog-url-rewrite/magento-module-catalog-url-rewrite-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-catalog-url-rewrite/magento-module-catalog-url-rewrite-100.4.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -2899,10 +2898,10 @@
         },
         {
             "name": "magento/module-checkout",
-            "version": "100.4.2",
+            "version": "100.4.3-p1",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-checkout/magento-module-checkout-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-checkout/magento-module-checkout-100.4.3-p1.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -2949,10 +2948,10 @@
         },
         {
             "name": "magento/module-cms",
-            "version": "104.0.2",
+            "version": "104.0.3-p1",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-cms/magento-module-cms-104.0.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-cms/magento-module-cms-104.0.3-p1.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -2988,10 +2987,10 @@
         },
         {
             "name": "magento/module-cms-url-rewrite",
-            "version": "100.4.1",
+            "version": "100.4.2",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-cms-url-rewrite/magento-module-cms-url-rewrite-100.4.1.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-cms-url-rewrite/magento-module-cms-url-rewrite-100.4.2.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3018,10 +3017,10 @@
         },
         {
             "name": "magento/module-config",
-            "version": "101.2.2",
+            "version": "101.2.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-config/magento-module-config-101.2.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-config/magento-module-config-101.2.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3052,10 +3051,10 @@
         },
         {
             "name": "magento/module-contact",
-            "version": "100.4.2",
+            "version": "100.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-contact/magento-module-contact-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-contact/magento-module-contact-100.4.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3083,10 +3082,10 @@
         },
         {
             "name": "magento/module-cron",
-            "version": "100.4.2",
+            "version": "100.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-cron/magento-module-cron-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-cron/magento-module-cron-100.4.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3114,10 +3113,10 @@
         },
         {
             "name": "magento/module-customer",
-            "version": "103.0.2-p1",
+            "version": "103.0.3-p1",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-customer/magento-module-customer-103.0.2-p1.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-customer/magento-module-customer-103.0.3-p1.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3164,10 +3163,10 @@
         },
         {
             "name": "magento/module-deploy",
-            "version": "100.4.2",
+            "version": "100.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-deploy/magento-module-deploy-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-deploy/magento-module-deploy-100.4.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3196,10 +3195,10 @@
         },
         {
             "name": "magento/module-developer",
-            "version": "100.4.2",
+            "version": "100.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-developer/magento-module-developer-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-developer/magento-module-developer-100.4.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3225,10 +3224,10 @@
         },
         {
             "name": "magento/module-directory",
-            "version": "100.4.2",
+            "version": "100.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-directory/magento-module-directory-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-directory/magento-module-directory-100.4.3.zip"
             },
             "require": {
                 "lib-libxml": "*",
@@ -3256,10 +3255,10 @@
         },
         {
             "name": "magento/module-downloadable",
-            "version": "100.4.2",
+            "version": "100.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-downloadable/magento-module-downloadable-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-downloadable/magento-module-downloadable-100.4.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3302,10 +3301,10 @@
         },
         {
             "name": "magento/module-eav",
-            "version": "102.1.2",
+            "version": "102.1.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-eav/magento-module-eav-102.1.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-eav/magento-module-eav-102.1.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3334,10 +3333,10 @@
         },
         {
             "name": "magento/module-email",
-            "version": "101.1.2",
+            "version": "101.1.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-email/magento-module-email-101.1.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-email/magento-module-email-101.1.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3373,10 +3372,10 @@
         },
         {
             "name": "magento/module-gift-message",
-            "version": "100.4.1",
+            "version": "100.4.2",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-gift-message/magento-module-gift-message-100.4.1.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-gift-message/magento-module-gift-message-100.4.2.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3412,10 +3411,10 @@
         },
         {
             "name": "magento/module-import-export",
-            "version": "101.0.2",
+            "version": "101.0.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-import-export/magento-module-import-export-101.0.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-import-export/magento-module-import-export-101.0.3.zip"
             },
             "require": {
                 "ext-ctype": "*",
@@ -3446,10 +3445,10 @@
         },
         {
             "name": "magento/module-indexer",
-            "version": "100.4.2",
+            "version": "100.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-indexer/magento-module-indexer-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-indexer/magento-module-indexer-100.4.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3474,10 +3473,10 @@
         },
         {
             "name": "magento/module-integration",
-            "version": "100.4.2",
+            "version": "100.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-integration/magento-module-integration-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-integration/magento-module-integration-100.4.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3508,10 +3507,10 @@
         },
         {
             "name": "magento/module-media-storage",
-            "version": "100.4.1",
+            "version": "100.4.2-p1",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-media-storage/magento-module-media-storage-100.4.1.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-media-storage/magento-module-media-storage-100.4.2-p1.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3543,10 +3542,10 @@
         },
         {
             "name": "magento/module-msrp",
-            "version": "100.4.1",
+            "version": "100.4.2",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-msrp/magento-module-msrp-100.4.1.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-msrp/magento-module-msrp-100.4.2.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3579,10 +3578,10 @@
         },
         {
             "name": "magento/module-newsletter",
-            "version": "100.4.2",
+            "version": "100.4.3-p1",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-newsletter/magento-module-newsletter-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-newsletter/magento-module-newsletter-100.4.3-p1.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3615,10 +3614,10 @@
         },
         {
             "name": "magento/module-page-cache",
-            "version": "100.4.2",
+            "version": "100.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-page-cache/magento-module-page-cache-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-page-cache/magento-module-page-cache-100.4.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3645,10 +3644,10 @@
         },
         {
             "name": "magento/module-payment",
-            "version": "100.4.2-p1",
+            "version": "100.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-payment/magento-module-payment-100.4.2-p1.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-payment/magento-module-payment-100.4.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3679,10 +3678,10 @@
         },
         {
             "name": "magento/module-product-alert",
-            "version": "100.4.1",
+            "version": "100.4.2",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-product-alert/magento-module-product-alert-100.4.1.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-product-alert/magento-module-product-alert-100.4.2.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3714,10 +3713,10 @@
         },
         {
             "name": "magento/module-quote",
-            "version": "101.2.2",
+            "version": "101.2.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-quote/magento-module-quote-101.2.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-quote/magento-module-quote-101.2.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3758,10 +3757,10 @@
         },
         {
             "name": "magento/module-reports",
-            "version": "100.4.2",
+            "version": "100.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-reports/magento-module-reports-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-reports/magento-module-reports-100.4.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3829,10 +3828,10 @@
         },
         {
             "name": "magento/module-review",
-            "version": "100.4.2",
+            "version": "100.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-review/magento-module-review-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-review/magento-module-review-100.4.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3868,10 +3867,10 @@
         },
         {
             "name": "magento/module-rss",
-            "version": "100.4.1",
+            "version": "100.4.2",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-rss/magento-module-rss-100.4.1.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-rss/magento-module-rss-100.4.2.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3898,10 +3897,10 @@
         },
         {
             "name": "magento/module-rule",
-            "version": "100.4.1",
+            "version": "100.4.2",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-rule/magento-module-rule-100.4.1.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-rule/magento-module-rule-100.4.2.zip"
             },
             "require": {
                 "lib-libxml": "*",
@@ -3930,10 +3929,10 @@
         },
         {
             "name": "magento/module-sales",
-            "version": "103.0.2",
+            "version": "103.0.3-p1",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-sales/magento-module-sales-103.0.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-sales/magento-module-sales-103.0.3-p1.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -3984,13 +3983,15 @@
         },
         {
             "name": "magento/module-sales-rule",
-            "version": "101.2.2",
+            "version": "101.2.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-sales-rule/magento-module-sales-rule-101.2.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-sales-rule/magento-module-sales-rule-101.2.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
+                "magento/framework-bulk": "101.0.*",
+                "magento/module-asynchronous-operations": "100.4.*",
                 "magento/module-authorization": "100.4.*",
                 "magento/module-backend": "102.0.*",
                 "magento/module-captcha": "100.4.*",
@@ -4060,14 +4061,15 @@
         },
         {
             "name": "magento/module-security",
-            "version": "100.4.2-p1",
+            "version": "100.4.3-p1",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-security/magento-module-security-100.4.2-p1.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-security/magento-module-security-100.4.3-p1.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
                 "magento/module-backend": "102.0.*",
+                "magento/module-config": "101.2.*",
                 "magento/module-store": "101.1.*",
                 "magento/module-user": "101.2.*",
                 "php": "~7.3.0||~7.4.0"
@@ -4093,10 +4095,10 @@
         },
         {
             "name": "magento/module-shipping",
-            "version": "100.4.2",
+            "version": "100.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-shipping/magento-module-shipping-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-shipping/magento-module-shipping-100.4.3.zip"
             },
             "require": {
                 "ext-gd": "*",
@@ -4139,10 +4141,10 @@
         },
         {
             "name": "magento/module-store",
-            "version": "101.1.2",
+            "version": "101.1.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-store/magento-module-store-101.1.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-store/magento-module-store-101.1.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -4177,10 +4179,10 @@
         },
         {
             "name": "magento/module-tax",
-            "version": "100.4.2",
+            "version": "100.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-tax/magento-module-tax-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-tax/magento-module-tax-100.4.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -4221,10 +4223,10 @@
         },
         {
             "name": "magento/module-theme",
-            "version": "101.1.2",
+            "version": "101.1.3-p1",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-theme/magento-module-theme-101.1.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-theme/magento-module-theme-101.1.3-p1.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -4263,10 +4265,10 @@
         },
         {
             "name": "magento/module-translation",
-            "version": "100.4.2",
+            "version": "100.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-translation/magento-module-translation-100.4.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-translation/magento-module-translation-100.4.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -4297,10 +4299,10 @@
         },
         {
             "name": "magento/module-ui",
-            "version": "101.2.2",
+            "version": "101.2.3-p1",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-ui/magento-module-ui-101.2.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-ui/magento-module-ui-101.2.3-p1.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -4332,10 +4334,10 @@
         },
         {
             "name": "magento/module-url-rewrite",
-            "version": "102.0.1",
+            "version": "102.0.2",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-url-rewrite/magento-module-url-rewrite-102.0.1.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-url-rewrite/magento-module-url-rewrite-102.0.2.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -4366,10 +4368,10 @@
         },
         {
             "name": "magento/module-user",
-            "version": "101.2.2",
+            "version": "101.2.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-user/magento-module-user-101.2.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-user/magento-module-user-101.2.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -4400,10 +4402,10 @@
         },
         {
             "name": "magento/module-variable",
-            "version": "100.4.0",
+            "version": "100.4.1-p1",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-variable/magento-module-variable-100.4.0.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-variable/magento-module-variable-100.4.1-p1.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -4431,10 +4433,10 @@
         },
         {
             "name": "magento/module-webapi",
-            "version": "100.4.1",
+            "version": "100.4.2",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-webapi/magento-module-webapi-100.4.1.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-webapi/magento-module-webapi-100.4.2.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
@@ -4466,16 +4468,17 @@
         },
         {
             "name": "magento/module-widget",
-            "version": "101.2.2",
+            "version": "101.2.3",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-widget/magento-module-widget-101.2.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-widget/magento-module-widget-101.2.3.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
                 "magento/module-backend": "102.0.*",
                 "magento/module-catalog": "104.0.*",
                 "magento/module-cms": "104.0.*",
+                "magento/module-email": "101.1.*",
                 "magento/module-store": "101.1.*",
                 "magento/module-theme": "101.1.*",
                 "magento/module-ui": "101.2.*",
@@ -4503,10 +4506,10 @@
         },
         {
             "name": "magento/module-wishlist",
-            "version": "101.2.2",
+            "version": "101.2.3-p1",
             "dist": {
                 "type": "zip",
-                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-wishlist/magento-module-wishlist-101.2.2.zip"
+                "url": "https://repo-magento-mirror.fooman.co.nz/dist/magento/module-wishlist/magento-module-wishlist-101.2.3-p1.zip"
             },
             "require": {
                 "magento/framework": "103.0.*",
