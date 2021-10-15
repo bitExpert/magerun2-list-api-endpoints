@@ -23,7 +23,7 @@
   "require": {
     "php": "^7.4",
     "magento/module-webapi": "100.3.5|100.4.0|100.4.1",
-    "magento/framework": "102.0.6|103.0.0|103.0.1|103.0.2|103.0.2-p1"
+    "magento/framework": "^103.0.3-p1"
   },
   "require-dev": {
     "n98/magerun2": "^4.5.0",
