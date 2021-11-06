@@ -7,6 +7,7 @@
   "prefer-stable": true,
   "homepage": "https://github.com/bitExpert/magerun2-list-api-endpoints",
   "license": "Apache-2.0",
+  "abandoned": "hivecommerce/magerun2-list-api-endpoints",
   "authors": [
     {
       "name": "Philipp Sander",

@@ -1,3 +1,7 @@
+> ## Repository abandoned 2021-11-06
+>
+> This package is abandoned. Use [hivecommerce/magerun2-list-api-endpoints](https://github.com/hivecommerce/magerun2-list-api-endpoints) instead!
+
 # magerun2 plugin: List all API endpoints
 
 This is a plugin for [netz98 Magerun2](https://github.com/netz98/n98-magerun2) to list all API endpoints.
